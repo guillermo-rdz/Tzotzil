@@ -1,0 +1,33 @@
+*{
+	margin: 0;
+}
+.pag2{
+	text-align: left;
+	margin-left: 10em;
+}
+.row{
+	padding: 0px 40px;
+}
+.pediatria{
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}
+.col-md-6 h1{
+	color: #7f8794;
+	margin: 0.5em;
+}
+.col-md-6 .ingresar{
+	margin: 0.5em;
+}
+.ingresar{
+ background: lightgreen;
+ color: white;
+ width: 200px;
+ transition:1s;
+ -webkit-transition: 1s;
+}
+.ingresar:hover{
+	background: green;
+	color: black;
+};
