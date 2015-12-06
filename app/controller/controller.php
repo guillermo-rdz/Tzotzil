@@ -7,13 +7,12 @@
 		public function home(){
 			include("app/view/home.html");
 		}
-
-		public function welcome(){
-			include("app/views/welcome.html");
+		public function pageLogin(){
+			include("app/view/login.html");
 		}
 		//vista para lo errores u horrores
 		public function error(){
-			include("app/vista/error404.html");
+			include("app/view/404.shtml");
 		}
 	}
  ?>

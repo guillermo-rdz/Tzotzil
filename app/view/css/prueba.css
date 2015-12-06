@@ -1,36 +1,31 @@
-*{
-	margin: 0px;
-}
 .titulo-navegacion{
-	background: #fc9628; /*es el fondo del blique que estoy usando*/
+	background: #fc9628; /*es el fondo del bloque que estoy usando*/
 	text-align: center; /*centrado del texto*/
 	padding: 1.8em 0; /*es el espacio 1em=16px */
 }
 .titulo{
-	text-align: center;
-	padding: 1.8em 0;
 	color: #7f8794;
+	margin: 1%;
 }
-figure[data="figura1"] img{
-	width: 65%;
-	height: 65%;
-	margin-top: 18em;
-	margin-left: 40px;
+.middle{
+	top: 50px;
+	position: relative;
 }
-.col2{
-	text-align: center;
-	margin-top: 35px;
+img[alt="2.jpg"]{
+	position: absolute;
+	top: -35%;
+	width: 15%; 
+	height: auto;
+	right: 30px;
 }
-figure[data="figura2"] img{
-	text-align: center;
-	margin-left: -30px;
-}
-figure[data="figura3"] img{
-	margin-left: 40%;
-	margin-top: -70px;
+.right{
+	position: relative;
+	top: 20px;
+	padding-left: 50%;
 }
 .btningresar{
 	background: #fc9628;
+	position: relative;
 	border-radius: 5px;
 	line-height: 1.5;
 	padding: 6px 12px;
@@ -38,7 +33,7 @@ figure[data="figura3"] img{
 	border-color: #fc9628;
 	color: black;
 	font-size: 2em;
-	margin-top: 65px;
+	margin-top: 50px;
 	transition: .5s;
 	-webkit-transition: .5s;
 }

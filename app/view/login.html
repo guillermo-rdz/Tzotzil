@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="ViewPort" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="app/view/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="app/view/css/prueba.css">
+	<link rel="stylesheet" type="text/css" href="app/view/css/login.css">
+</head>
+<body>
+	<nav class="titulo-navegacion">
+		<h2>Hospital de las culturas, San Cristobal de las Casas, Chiapas</h2> 
+	</nav>
+	<div class="container-fluid">
+		<div class="row titulo">
+			<h1>Area</h1>
+		</div>
+		<div class="row padding">
+			<div class="col-md-4 col-lg-4 text-center">
+				<div class="row subtitulo"><h2>Traumalogía</h2></div>
+				<div class="row">
+					<figure><img src="app/view/img/trauma.jpg" alt="trauma.jpg"></figure>
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 text-center">
+				<h2 class="subtitulo"><button id="login" class="btn btn-success">Login</button></h2>
+				<div class="alert alert-warning alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<strong>Presione en palabra <kbd>Login</kbd> para ver el fomulario</strong>
+				</div>
+				<div class="formulario">
+					<form action="">
+						<input type="text" placeholder="Usuario" class="form-control" />
+						<input type="password" placeholder="Contraseña" class="form-control" />
+						<input type="submit" class="btn btningresar" value="INGRESAR" />
+					</form>						
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 text-center">
+				<div class="row subtitulo"><h2>Pediatría</h2></div>
+				<div class="row">
+					<figure><img src="app/view/img/pediatria.jpg" alt="pediatria.jpg"></figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="app/view/js/jquery.js"></script>
+	<script src="app/view/js/bootstrap.min.js"></script>
+	<script src="app/view/js/login.js"></script>
+</body>
+</html>
