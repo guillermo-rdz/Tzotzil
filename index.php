@@ -4,14 +4,8 @@
 
 	if (empty($_GET['action'])) {
 		$_GET['action'] = "home";
-		$mvc->welcome();
 	}
-<<<<<<< HEAD
-	if ($_GET["action"]=="home") {
-=======
-	
-	else if ($_GET["action"]=="home") {
->>>>>>> origin/master
+	} else if ($_GET["action"]=="home") {
 		$mvc->home();
 	}
 	else

@@ -8,10 +8,6 @@
 		}
 
 		//funciones publicas y privadas...
-		public function login(){
-			//ejemplo de llamar al objeto del constructor que extiende de la clase conexion
-			// $this->mysqli->query("consulta");
-		}
 	}
 
  ?>

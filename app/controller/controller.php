@@ -9,11 +9,11 @@
 		}
 
 		public function welcome(){
-			include("app/views/welcome.html");	
+			include("app/views/welcome.html");
 		}
 		//vista para lo errores u horrores
 		public function error(){
-			//include("app/view/error404.html");
+			include("app/vista/error404.html");
 		}
 	}
  ?>
