@@ -5,11 +5,7 @@
 	class controller{
 		// Views
 		public function home(){
-			include("app/views/XXX.html");
-		}
-
-		public function welcome(){
-			include("app/views/welcome.html");	
+			include("app/vista/xxxx.html");
 		}
 		//vista para lo errores u horrores
 		public function error(){
