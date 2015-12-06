@@ -5,11 +5,11 @@
 	class controller{
 		// Views
 		public function home(){
-			include("app/vista/xxxx.html");
+			include("app/view/home.html");
 		}
 		//vista para lo errores u horrores
 		public function error(){
-			include("app/vista/error404.html");
+			//include("app/view/error404.html");
 		}
 	}
  ?>
