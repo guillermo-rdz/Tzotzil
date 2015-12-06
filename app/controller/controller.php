@@ -6,7 +6,6 @@
 		// Views
 		public function home(){
 			include("app/view/home.html");
-			include("app/views/XXX.html");
 		}
 
 		public function welcome(){
