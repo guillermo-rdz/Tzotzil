@@ -10,20 +10,32 @@
 		//funciones publicas y privadas...
 
 		//Función para preguntas protocolarias
-		public function preguntas_prot(){
-			$query = $this->mysqli->query("SELECT frases_esp.frase_esp, frases_tzo.frase_tzo FROM frases_esp, frases_tzo WHERE id_frase_esp = frases_esp_id_frase_esp AND areas_id_area = 1;");
+		public function preguntas_p(){
+			$datos = array();
+
+			$query = $this->mysqli->query("SELECT frase_tzo, frase_esp FROM frases;");
 
 
 			while ($row = $query->fetch_array()) {
-				echo $row['frase_esp']."---------".$row['frase_tzo']."<br>";
+				/*$frase_esp = $row['frase_esp'];
+				$frase_tzo = $row['frase_tzo'];*/
+
+				$datos[] = array("frase_esp"=>$row["frase_esp"], "frase_tzo"=>$row["frase_tzo"]);
+				echo $row["frase_esp"]."<br>";
 			}
+
+			$this->mysqli->close();
+
+			$datos_json = json_encode($datos);
+			var_dump($datos);
+			echo $datos_json;
 		}
 	}
 
-	/*
-	Para ver si jala XD
-	$instance = new model();
+	
+	//Para ver si jala XD
+	/*$instance = new model();
 
-	$instance->preguntas_prot();*/
+	$instance->preguntas_p();*/
 
  ?>
