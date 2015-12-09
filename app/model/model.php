@@ -26,7 +26,7 @@
 
 	//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
 				echo "<table border=1>";
-				echo "<td width=100>".$row["frase_esp"]."</td>"."<td width=100>".$row["frase_tzo"]."</td>";
+				echo "<td width=100 data-".$row["frase_esp"].">".$row["frase_esp"]."</td>"."<td width=100>".$row["frase_tzo"]."</td>";
 				echo "</table>";
 			}
 
