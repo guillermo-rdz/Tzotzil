@@ -109,7 +109,13 @@
 	//Para ver si jala XD
 	$instance = new model();
 
-	$instance->preguntas_p();
-	//$instance->ingresa_areas();
+	if ($_POST['tipo']=="preguntas_p") {
+		$instance->preguntas_p();
+
+	}
+
+	else{
+		echo "Error...";
+	}
 
  ?>
