@@ -15,7 +15,8 @@
 			$id_area = 3;
 			$datos = array();
 
-			$query = $this->mysqli->query("SELECT frase_tzo, frase_esp FROM frases WHERE areas_id_area='$id_area'");
+			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area'");
+			//"SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area';"
 
 
 			while ($row = $query->fetch_array()) {
@@ -56,11 +57,11 @@
 		public function agregar_preguntas(){
 			//Cambiar por los valores que vienen de la vista
 			$id_area = 2;
-			$tipo = "" // "p" preguntas protocolarias "a" ausculcación
+			$tipo = ""; // "p" preguntas protocolarias "a" ausculcación
 			$frase_esp = "";
 			$frase_tzo = "";
 
-			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'p', '$id_area')") {
+			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'p', '$id_area')")) {
 				$datos = array("mensaje"=>"Los datos se ingresaron correctamente");
 				$datos_json = json_encode($datos);
 				echo $datos_json;
@@ -83,7 +84,7 @@
 			$frase_tzo = "";
 			$id_frase = 4; //El id de la frase a la que se relaciona
 
-			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'a', '$id_area')") {
+			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'a', '$id_area')")) {
 				$datos = array("mensaje"=>"Los datos se ingresaron correctamente");
 				$datos_json = json_encode($datos);
 				echo $datos_json;
