@@ -20,15 +20,17 @@
 			//"SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area';"
 
 
+			echo "<table border=1>";
 			while ($row = $query->fetch_array()) {
 
 				//$datos[] = array("frase_esp"=>$row["frase_esp"],"frase_tzo"=>$row["frase_tzo"]);
 
 	//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
-				echo "<table border=1>";
+				echo "<tr>";
 				echo "<td width=100 data-".$row["frase_esp"].">".$row["frase_esp"]."</td>"."<td width=100>".$row["frase_tzo"]."</td>";
-				echo "</table>";
+				echo "</tr>";
 			}
+			echo "</table>";
 
 			$this->mysqli->close();
 
