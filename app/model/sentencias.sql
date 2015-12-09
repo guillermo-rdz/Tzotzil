@@ -59,24 +59,10 @@ SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase="a" AND frases_id_frase
 #Consulta para Auscultación 3 de Pediatría
 SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase="a" AND frases_id_frase=7;
 
-CREATE  TABLE IF NOT EXISTS `base_tr`.`frases` (
-  `id_frase` INT NOT NULL AUTO_INCREMENT ,
-  `frase_esp` VARCHAR(200) NOT NULL ,
-  `frase_tzo` VARCHAR(200) NOT NULL ,
-  `tipo_frase` CHAR(2) NOT NULL COMMENT 'Pregunta protocolaria(P), asculltación(A), diagnostico(D), Ascultacion2(A2) Ascultacion3(A3)' ,
-  `areas_id_area` INT NOT NULL ,
-  `frases_id_frase` INT NOT NULL DEFAULT 0 ,
-  PRIMARY KEY (`id_frase`) ,
-  INDEX `fk_frases_esp_areas1_idx` (`areas_id_area` ASC) ,
-  INDEX `fk_frases_frases1_idx` (`frases_id_frase` ASC) ,
-  CONSTRAINT `fk_frases_esp_areas1`
-    FOREIGN KEY (`areas_id_area` )
-    REFERENCES `base_tr`.`areas` (`id_area` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_frases_frases1`
-    FOREIGN KEY (`frases_id_frase` )
-    REFERENCES `base_tr`.`frases` (`id_frase` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
+#Consulta para el dropdown--------------------------No sé si te sirva XD solo esta con frases en español, pero pues se puede adaptar-----------------------------
+SELECT f.frase_esp, fh.frase_esp, fhh.frase_esp
+FROM frases f
+INNER JOIN frases fh 
+ON f.id_frase = fh.frases_id_frase
+INNER JOIN frases fhh
+ON fh.id_frase = fhh.frases_id_frase;
