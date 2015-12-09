@@ -12,7 +12,8 @@
 		//Función para preguntas protocolarias
 		public function preguntas_p(){
 			//Dependiendo de la vista mandas el id del area
-			$id_area = 3;
+			//$id_area = $_POST['id_area'];
+			$id_area = 2;
 			$datos = array();
 
 			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area'");
@@ -20,38 +21,40 @@
 
 
 			while ($row = $query->fetch_array()) {
-				/*$frase_esp = $row['frase_esp'];
-				$frase_tzo = $row['frase_tzo'];*/
 
-				$datos[] = array("frase_esp"=>$row["frase_esp"],"frase_tzo"=>$row["frase_tzo"]);
-				//echo $row["frase_esp"].$row["frase_tzo"]."<br>";
+				//$datos[] = array("frase_esp"=>$row["frase_esp"],"frase_tzo"=>$row["frase_tzo"]);
+
+	//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
+				echo "<table border=1>";
+				echo "<td width=100>".$row["frase_esp"]."</td>"."<td width=100>".$row["frase_tzo"]."</td>";
+				echo "</table>";
 			}
 
 			$this->mysqli->close();
 
-			$datos_json = json_encode($datos);
+			/*$datos_json = json_encode($datos);
 			var_dump($datos);
-			echo $datos_json;
+			echo $datos_json;*/
 		}
 
 		//Agregar areas
 		public function agregar_areas(){
 			//cambiar por el valor que viene de la vista
-			$area = "nueva";
+			$nombre_area = $_POST['nombre_area'];
 
 			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$area', 'n');")) {
-				$datos = array("mensaje"=>"Los datos se ingresaron correctamente");
-				$datos_json = json_encode($datos);
-				echo $datos_json;
+				echo "Se ingreso el área";
 			}
 			else{
-				$datos = array("mensaje"=>"Error al ingresar los datos");
-				$datos_array = json_encode($datos);
-				echo $datos_array;
+				echo "Error al ingresar el área";
 
 			}
 
 			$this->mysqli->close();
+		}
+
+		public function listar_areas(){
+
 		}
 
 		public function agregar_preguntas(){
@@ -102,9 +105,9 @@
 
 	
 	//Para ver si jala XD
-	//$instance = new model();
+	$instance = new model();
 
-	//$instance->preguntas_p();
+	$instance->preguntas_p();
 	//$instance->ingresa_areas();
 
  ?>
