@@ -27,7 +27,7 @@
 	transition: 1s;
 	-webkir-transition: 1s;
 }
-a[data="link1"], a[data="link2"], a[data="link3"], a[data="link4"]{
+a[data="link1"], a[data="link2"], a[data="link3"]{
 	border-left: 5px solid #333;
 }
 ul.nav li a:hover{
