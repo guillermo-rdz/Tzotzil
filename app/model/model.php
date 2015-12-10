@@ -12,8 +12,8 @@
 		//Función para preguntas protocolarias
 		public function preguntas_p(){
 			//Dependiendo de la vista mandas el id del area
-			//$id_area = $_POST['id_area'];
-			$id_area = 2;
+			$id_area = $_POST['id_area'];
+			//$id_area = 2;
 			$datos = array();
 
 			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area'");
@@ -25,7 +25,7 @@
 
 				//$datos[] = array("frase_esp"=>$row["frase_esp"],"frase_tzo"=>$row["frase_tzo"]);
 
-	//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
+				//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
 				echo "<tr>";
 				echo "<td width=100 data-".$row["frase_esp"].">".$row["frase_esp"]."</td>"."<td width=100>".$row["frase_tzo"]."</td>";
 				echo "</tr>";
@@ -44,7 +44,7 @@
 			//cambiar por el valor que viene de la vista
 			$nombre_area = $_POST['nombre_area'];
 
-			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$area', 'n');")) {
+			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$area', 'n')")) {
 				echo "Se ingreso el área";
 			}
 			else{
@@ -56,7 +56,14 @@
 		}
 
 		public function listar_areas(){
+			$id_area = $_POST['id_area'];
+			$datos = array();
 
+			$query = $this->mysqli->query("SELECT area FROM areas WHERE rango='n' AND id_area='$id_area'");
+
+			while ($row = $query->fetch_array()) {
+				echo $row['area']."<br>";
+			}
 		}
 
 		public function agregar_preguntas(){
