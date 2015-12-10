@@ -15,13 +15,21 @@
 			$usuario = $_POST['usuario'];
 			$pass = $_POST['pass'];
 
-			$query = $this->mysqli->query("SELECT usuario, pass FROM usuarios WHERE usuario='$usuario', '$pass'");
-			//para que no te confundas
-			$area_id = $this->mysqli->query("SELECT area_id_area FROM usuarios WHERE usuario='$usuario', '$pass'");
-			if ($query->num_rows()>0) {
+			$query = $this->mysqli->query("SELECT usuario, pass, area_id_area FROM usuarios WHERE usuario='$usuario' AND pass='$pass'");
+
+			while ($row = $query->fetch_array()){
+				$area_id = $row['area_id_area'];
+			}
+			
+			if ($query->num_rows == 1) {
 				$_SESSION['area_id']=$area_id;
 				$_SESSION['usuario']=$usuario;
+				echo $area_id;
 				//supongo que te va a servir XD
+				//header(string);
+			}
+
+			else{
 				//header(string);
 			}
 		}
@@ -131,7 +139,7 @@
 	
 	//Para ver si jala XD
 	$instance = new model();
-
+	
 	if ($_POST['tipo']=="login") {
 		$instance->login();
 	}
