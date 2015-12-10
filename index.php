@@ -11,6 +11,9 @@
 	elseif($_GET['action']=="login"){
 		$mvc->pageLogin();
 	}
+	elseif($_GET['action']=="contenido"){
+		$mvc->content();
+	}
 	else
 		$mvc->error();
 ?>

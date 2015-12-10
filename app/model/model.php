@@ -120,7 +120,6 @@
 		$instance->preguntas_p();
 
 	}
-
 	else{
 		echo "Error...";
 	}
