@@ -1,9 +1,10 @@
 #NO HE PUESTO NADA EN TRAUMATOLOGÍA PERO DIME SI QUEDA BIEN ASÍ
-
+# auto_increment,nombre de area, rango a=admin n=normal
 INSERT INTO areas VALUES (default, "Admin", "a");
 INSERT INTO areas VALUES (default, "Pediatría", "n");
 INSERT INTO areas VALUES (default, "Traumatología", "n");
 
+# id, usuario, pass, rango, id_area
 INSERT INTO usuarios VALUES (default, "admin", "qaz", 1, 1);
 INSERT INTO usuarios VALUES (default, "Doctor_David", "qaz", 2, 2);
 INSERT INTO usuarios VALUES (default, "Doctor_Memo", "qaz", 2, 3);

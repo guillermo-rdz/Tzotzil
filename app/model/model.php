@@ -21,8 +21,8 @@
 			if ($query->num_rows()>0) {
 				$_SESSION['area_id']=$area_id;
 				$_SESSION['usuario']=$usuario;
-			//supongo que te va a servir XD
-				header(string);
+				//supongo que te va a servir XD
+				//header(string);
 			}
 		}
 
@@ -132,9 +132,11 @@
 	//Para ver si jala XD
 	$instance = new model();
 
-	if ($_POST['tipo']=="preguntas_p") {
+	if ($_POST['tipo']=="login") {
+		$instance->login();
+	}
+	else if($_POST['tipo']=="preguntas_p") {
 		$instance->preguntas_p();
-
 	}
 	else{
 		echo "Error...";
