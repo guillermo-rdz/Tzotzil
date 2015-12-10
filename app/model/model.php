@@ -10,6 +10,22 @@
 		//funciones publicas y privadas...
 
 		//Función para preguntas protocolarias
+
+		public function login(){
+			$usuario = $_POST['usuario'];
+			$pass = $_POST['pass'];
+
+			$query = $this->mysqli->query("SELECT usuario, pass FROM usuarios WHERE usuario='$usuario', '$pass'");
+			//para que no te confundas
+			$area_id = $this->mysqli->query("SELECT area_id_area FROM usuarios WHERE usuario='$usuario', '$pass'");
+			if ($query->num_rows()>0) {
+				$_SESSION['area_id']=$area_id;
+				$_SESSION['usuario']=$usuario;
+			//supongo que te va a servir XD
+				header(string);
+			}
+		}
+
 		public function preguntas_p(){
 			//Dependiendo de la vista mandas el id del area
 			$id_area = $_POST['id_area'];
