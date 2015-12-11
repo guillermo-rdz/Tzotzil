@@ -1,9 +1,10 @@
 #NO HE PUESTO NADA EN TRAUMATOLOGÍA PERO DIME SI QUEDA BIEN ASÍ
 # auto_increment,nombre de area, rango a=admin n=normal
+/*
+*/
 INSERT INTO areas VALUES (default, "Admin", "a");
 INSERT INTO areas VALUES (default, "Pediatría", "n");
 INSERT INTO areas VALUES (default, "Traumatología", "n");
-
 # id, usuario, pass, rango, id_area
 INSERT INTO usuarios VALUES (default, "admin", "qaz", 1, 1);
 INSERT INTO usuarios VALUES (default, "Doctor_David", "qaz", 2, 2);
@@ -16,6 +17,7 @@ INSERT INTO frases VALUES(default, "Edad", "Avilal", "p", 2, NULL);
 INSERT INTO frases VALUES(default, "Sexo", "Vinik o ants", "p", 2, NULL);
 INSERT INTO frases VALUES(default, "Región de procedencia", "A lumal", "p", 2, NULL);
 
+/*
 #Pediatría Auscultación
 INSERT INTO frases VALUES(default, "Vomito", "xenel", "a", 2, NULL);#Nivel 1
 INSERT INTO frases VALUES(default, "Diarrea", "tso'", "a", 2, NULL);#Nivel 1
@@ -76,3 +78,4 @@ INNER JOIN frases fh
 ON f.id_frase = fh.frases_id_frase
 INNER JOIN frases fhh
 ON fh.id_frase = fhh.frases_id_frase;
+*/

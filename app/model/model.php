@@ -12,26 +12,31 @@
 		//Función para preguntas protocolarias
 
 		public function login(){
-			$usuario = $_POST['usuario'];
-			$pass = $_POST['pass'];
-
-			$query = $this->mysqli->query("SELECT usuario, pass, area_id_area FROM usuarios WHERE usuario='$usuario' AND pass='$pass'");
-
-			while ($row = $query->fetch_array()){
-				$area_id = $row['area_id_area'];
-			}
+			$usuario = trim(htmlentities($_POST['usuario']));
+			$pass = trim(htmlentities($_POST['pass']));
 			
+			$usuario = $this->mysqli->real_escape_string($usuario);
+			$pass = $this->mysqli->real_escape_string($pass);
+
+			$query = $this->mysqli->query("SELECT id_usuario,usuario,pass,area,a.rango
+									FROM usuarios u, areas a 
+									WHERE usuario='$usuario' and pass='$pass' and id_area=area_id_area");
+			$row = $query->fetch_array();
+
 			if ($query->num_rows == 1) {
-				$_SESSION['area_id']=$area_id;
-				$_SESSION['usuario']=$usuario;
-				echo $area_id;
-				//supongo que te va a servir XD
-				//header(string);
+				//$_SESSION['usuario']=$usuario;
+				//$_SESSION['rango']=$row['rango'];
+				//$_SESSION['conectado']=true;
+				$datos=array("mensaje"=>"Bienvenido: ".$usuario." y Area: ".$row['area'],"validate"=>"true");
+				$datos=json_encode($datos);
+				echo $datos;
+			} else {
+				$datos=array("mensaje"=>"Tu usuario y contraseña no existen","validate"=>"false");
+				$datos=json_encode($datos);
+				echo $datos;
 			}
 
-			else{
-				//header(string);
-			}
+			$this->mysqli->close();
 		}
 
 		public function preguntas_p(){

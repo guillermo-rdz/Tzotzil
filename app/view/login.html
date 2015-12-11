@@ -24,18 +24,19 @@
 				</div>
 			</div>
 			<div class="col-md-4 col-lg-4 text-center">
-				<h2 class="subtitulo"><button id="login" class="btn btn-success">Login</button></h2>
-				<div class="alert alert-warning alert-dismissible" role="alert">
+				<h2 class="subtitulo">Login</h2>
+				<div class="error"></div>
+				<!--div id="mensaje_error" class="alert alert-warning alert-dismissible" role="alert">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<strong>Presione en palabra <kbd>Login</kbd> para ver el fomulario</strong>
-				</div>
+					<strong id="error_strong"></strong>
+				</div-->
 				<div class="formulario">
 					<form action="">
-						<input type="text" placeholder="Usuario" class="form-control" />
-						<input type="password" placeholder="Contraseña" class="form-control" />
-						<input type="submit" class="btn btningresar" value="INGRESAR" />
+						<input type="text" id="user" name="user" placeholder="Usuario" class="form-control" />
+						<input type="password" id="pass" name="pass" placeholder="Contraseña" class="form-control" />
+						<input type="submit" id="btningresar" class="btn btningresar" value="INGRESAR" />
 					</form>						
 				</div>
 			</div>
