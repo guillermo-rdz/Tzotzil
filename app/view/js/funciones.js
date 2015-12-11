@@ -11,4 +11,15 @@
 		$(".preguntas_p").html(info);
 	});
 	*/
+	$(".btnlogout").on("click", function (event){
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "app/model/model.php",
+			data: {"tipo":"logout"}
+		}).done(function (info){
+			alert(info);
+			window.location = "/tzotzil/";
+		});
+	});
 })();
