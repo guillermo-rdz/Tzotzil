@@ -26,7 +26,7 @@
 			if ($query->num_rows == 1) {
 				$_SESSION['usuario']=$usuario;
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
-				$_SESSION['area']=$row['area'];
+				$_SESSION['area']=utf8_encode($row['area']);
 				$_SESSION['conectado']=true;
 				//------------------------------------Aquí-------------------------------y Aquí
 				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
@@ -39,6 +39,14 @@
 			}
 
 			$this->mysqli->close();
+		}
+
+		public function logout(){
+			session_start();
+			session_unset();
+			session_destroy();
+
+			echo "Desconexión finalizada :(";
 		}
 
 		public function preguntas_p(){
