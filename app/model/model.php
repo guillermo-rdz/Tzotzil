@@ -162,6 +162,10 @@
 	else if($_POST['tipo']=="preguntas_p") {
 		$instance->preguntas_p();
 	}
+
+	elseif ($_POST['tipo']=="logout") {
+		$instance->logout();
+	}
 	else{
 		echo "Error...";
 	}
