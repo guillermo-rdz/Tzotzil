@@ -57,7 +57,8 @@
 			//$id_area = 2;
 			$datos = array();
 
-			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases, areas WHERE tipo_frase='$tipo_frase' AND area='$area'");
+			$query = $this->mysqli->query("SELECT DISTINCT frase_esp, frase_tzo FROM frases, areas WHERE tipo_frase='$tipo_frase' 
+							AND area='$area' AND id_area=areas_id_area");
 			//"SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area';"
 
 
