@@ -24,6 +24,7 @@
 			$row = $query->fetch_array();
 
 			if ($query->num_rows == 1) {
+				session_start();
 				$_SESSION['usuario']=$usuario;
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
 				$_SESSION['area']=utf8_encode($row['area']);
