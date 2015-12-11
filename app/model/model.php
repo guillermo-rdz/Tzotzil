@@ -27,7 +27,8 @@
 				//$_SESSION['usuario']=$usuario;
 				//$_SESSION['rango']=$row['rango'];
 				//$_SESSION['conectado']=true;
-				$datos=array("mensaje"=>"Bienvenido: ".$usuario." y Area: ".$row['area'],"validate"=>"true");
+				//------------------------------------Aquí-------------------------------y Aquí
+				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
 				$datos=json_encode($datos);
 				echo $datos;
 			} else {
