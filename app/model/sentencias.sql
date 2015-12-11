@@ -17,10 +17,10 @@ INSERT INTO frases VALUES(default, "Edad", "Avilal", "p", 2, NULL);
 INSERT INTO frases VALUES(default, "Sexo", "Vinik o ants", "p", 2, NULL);
 INSERT INTO frases VALUES(default, "Región de procedencia", "A lumal", "p", 2, NULL);
 
-/*
+
 #Pediatría Auscultación
-INSERT INTO frases VALUES(default, "Vomito", "xenel", "a", 2, NULL);#Nivel 1
-INSERT INTO frases VALUES(default, "Diarrea", "tso'", "a", 2, NULL);#Nivel 1
+INSERT INTO frases VALUES(default, "Vomito", "xenel", "a", 2, 0);#Nivel 1
+INSERT INTO frases VALUES(default, "Diarrea", "tso'", "a", 2, 0);#Nivel 1
 
 INSERT INTO frases VALUES(default, "Cuántas veces ha vomitado", "ya' yim velta la xen'", "a", 2, 5);#Nivel 2 vomito
 INSERT INTO frases VALUES(default, "desde hace cuantos días", "ja'yim xa k'ak'al", "a", 2, 6);#Nivel 2 diarrea
@@ -55,7 +55,7 @@ INSERT INTO frases VALUES(default, "Ambas", "xchibal", "a", 3, 19);#Nivel 3 rodi
 #Traumatología diagnostico
 #INSERT INTO frases VALUES(default, "Reposo", "Kuxel", "d", 3);
 
-
+/*
 
 ###################################################CONSULTAS################################################
 

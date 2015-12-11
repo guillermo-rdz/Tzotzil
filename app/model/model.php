@@ -43,11 +43,12 @@
 
 		public function preguntas_p(){
 			//Dependiendo de la vista mandas el id del area
-			$id_area = $_POST['id_area'];
+			$area = $_POST['area'];
+			$tipo_frase = $_POST['tipo_frase'];
 			//$id_area = 2;
 			$datos = array();
 
-			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area'");
+			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases, areas WHERE tipo_frase='$tipo_frase' AND area='$area'");
 			//"SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area';"
 
 
