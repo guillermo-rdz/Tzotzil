@@ -18,15 +18,16 @@
 			$usuario = $this->mysqli->real_escape_string($usuario);
 			$pass = $this->mysqli->real_escape_string($pass);
 
-			$query = $this->mysqli->query("SELECT id_usuario,usuario,pass,area,a.rango
+			$query = $this->mysqli->query("SELECT id_usuario,usuario,pass,area,a.rango AS nombre_rango
 									FROM usuarios u, areas a 
 									WHERE usuario='$usuario' and pass='$pass' and id_area=area_id_area");
 			$row = $query->fetch_array();
 
 			if ($query->num_rows == 1) {
-				//$_SESSION['usuario']=$usuario;
-				//$_SESSION['rango']=$row['rango'];
-				//$_SESSION['conectado']=true;
+				$_SESSION['usuario']=$usuario;
+				$_SESSION['nombre_rango']=$row['nombre_rango'];
+				$_SESSION['area']=$row['area'];
+				$_SESSION['conectado']=true;
 				//------------------------------------Aquí-------------------------------y Aquí
 				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
 				$datos=json_encode($datos);
@@ -57,7 +58,7 @@
 
 				//--------------------------------------------------Dale estilo a la tabla------------------------------------------------
 				echo "<tr data-fila>";
-				echo "<td>".$row["frase_esp"]."</td>"."<td>".$row["frase_tzo"]."</td>";
+				echo "<td>".utf8_encode($row["frase_esp"])."</td>"."<td>".utf8_encode($row["frase_tzo"])."</td>";
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
