@@ -33,3 +33,18 @@ a[data="link1"], a[data="link2"], a[data="link3"]{
 ul.nav li a:hover{
 	background: #8bd9d1;
 }
+table{
+	display: flex;
+	justify-content: space-around;
+}
+tr[data-fila] td{
+	font-size: 2em;
+	padding: 1em 5em;
+	color: #808080;
+}
+tr[data-fila] td::before{
+	content: "¿";
+}
+tr[data-fila] td::after{
+	content: "?";
+}

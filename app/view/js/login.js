@@ -26,7 +26,7 @@
 			var parte1="<div id='mensaje_error' class='alert alert-warning alert-dismissible' role='alert'>";
 			var parte2="<button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
 			var parte3="<span aria-hidden='true'>&times;</span></button><strong>"+info.mensaje+"</strong></div>";
-			//console.log(info);
+			console.log(info);
 			if (info.validate == "true") {
 				$(".error").html(parte1+parte2+parte3).fadeIn();
 				user.val("");
