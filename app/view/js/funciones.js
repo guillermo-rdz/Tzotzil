@@ -1,7 +1,4 @@
 (function (){
-	var name_area = '<?php echo $_SESSION[\"area\"] ?>';
-	alert(name_area);
-
 	/*
 	$.ajax({
 		type: "POST",

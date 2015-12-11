@@ -13,18 +13,18 @@
 		public function content(){
 			session_start();
 			echo $_SESSION["area"];
-			//if (isset($_SESSION["conectado"])) {
+			if (isset($_SESSION["conectado"])) {
 				include("app/view/contenido.html");
-			//} else
-			//	header('Location: /tzotzil/');
+			} else
+				header('Location: /tzotzil/');
 		}
 		//vista para lo errores u horrores
 		public function error(){
 			session_start();
-			//if (isset($_SESSION["conectado"])) {
+			if (isset($_SESSION["conectado"])) {
 				include("app/view/404.shtml");
-			//} else
-			//	header('Location: /tzotzil/');
+			} else
+				header('Location: /tzotzil/');
 		}
 	}
  ?>
