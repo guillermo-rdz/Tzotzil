@@ -1,5 +1,8 @@
 (function (){
+	$(".titulo__contenido").html(sesion_area);
 	/*
+	alert("Su area es de tipo: "+sesion_area);
+	alert("Su usuario es de tipo: "+sesion_rango);
 	$.ajax({
 		type: "POST",
 		url: "app/model/model.php",

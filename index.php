@@ -13,6 +13,8 @@
 	}
 	elseif($_GET['action']=="contenido"){
 		$mvc->content();
+	}elseif($_GET['action']=="panel"){
+		$mvc->panel_admin();
 	}
 	else
 		$mvc->error();
