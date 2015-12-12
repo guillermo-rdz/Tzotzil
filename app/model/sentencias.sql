@@ -42,8 +42,8 @@ INSERT INTO frases VALUES(default, "Edad", "Avilal", "p", 3, NULL);
 INSERT INTO frases VALUES(default, "Sexo", "Vinik o ants", "p", 3, NULL);
 INSERT INTO frases VALUES(default, "Motivo de la consulta", "Ja yoon sventa li consulta", "p", 3, NULL);
 #Traumatología Auscultación
-INSERT INTO frases VALUES(default, "Le duele la espalda", "mi ip'xabai la pate'", "a", 3, NULL);#Nivel 1
-INSERT INTO frases VALUES(default, "Le duele la rodilla", "mi ip'xabai lisjol a bakan", "a", 3, NULL);#Nivel 1
+INSERT INTO frases VALUES(default, "Le duele la espalda", "mi ip'xabai la pate'", "a", 3, 0);#Nivel 1
+INSERT INTO frases VALUES(default, "Le duele la rodilla", "mi ip'xabai lisjol a bakan", "a", 3, 0);#Nivel 1
 
 INSERT INTO frases VALUES(default, "Cuál", "bu junukal", "a", 3, 18);#Nivel 2 Rodrilla
 
