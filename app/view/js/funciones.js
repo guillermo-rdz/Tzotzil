@@ -1,7 +1,8 @@
 (function (){
 	$(".titulo__contenido").html(nombre_area);
+	alert(id_area);
 	/*
-	alert("Su area es de tipo: "+sesion_area);
+	alert("Su area es de tipo: "+nombre_area);
 	alert("Su usuario es de tipo: "+sesion_rango);
 	$("a[data='link1']").on("click",function (event){
 		event.preventDefault();
@@ -44,6 +45,7 @@
 		url: "app/model/model.php",
 		data: {"tipo":"preguntas_p","area":nombre_area,"tipo_frase":"p"}
 	}).done(function (info){
+		//console.log(info);
 		$(".preguntas_p").html(info);
 	});
 
@@ -59,8 +61,16 @@
 		});
 	});
 
-
-	
+	/*
+	//primer contenido	
+	$.ajax({
+		type: "POST",
+		url: "app/model/model.php",
+		data: {"tipo":"preguntas_p","area":nombre_area,"tipo_frase":"p"}
+	}).done(function (info){
+		$(".preguntas_p").html(info);
+	});
+	//segundo contenido
 	$.ajax({
 		type: "POST",
 		url: "app/model/model.php",
@@ -68,4 +78,13 @@
 	}).done(function (info){
 		$(".preguntas_p").html(info);
 	});
+	//tercer contenido
+	$.ajax({
+		type: "POST",
+		url: "app/model/model.php",
+		data: {"tipo":"preguntas_p","area":sesion_area,"tipo_frase":"p"}
+	}).done(function (info){
+		$(".preguntas_p").html(info);
+	});
+	*/
 })();

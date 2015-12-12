@@ -18,7 +18,7 @@
 			$usuario = $this->mysqli->real_escape_string($usuario);
 			$pass = $this->mysqli->real_escape_string($pass);
 
-			$query = $this->mysqli->query("SELECT usuario,pass, areas_id_area, area,a.rango AS nombre_rango
+			$query = $this->mysqli->query("SELECT usuario,pass, area_id_area, area,a.rango AS nombre_rango
 									FROM usuarios u, areas a 
 									WHERE usuario='$usuario' and pass='$pass' and id_area=area_id_area");
 			$row = $query->fetch_array();
@@ -28,9 +28,9 @@
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
 				$_SESSION['area']=utf8_encode($row['area']);
 				$_SESSION['conectado']=true;
-				$_SESSION['id_area']=$row['areas_id_area'];
+				$_SESSION['id_area']=$row['area_id_area'];
 				//------------------------------------Aquí-------------------------------y Aquí
-				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
+				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." del area de: ".utf8_encode($row['area']),"validate"=>"true");
 				$datos=json_encode($datos);
 				echo $datos;
 			} else {
@@ -57,7 +57,7 @@
 			//$id_area = 2;
 			$datos = array();
 
-			$query = $this->mysqli->query("SELECT DISTINCT frase_esp, frase_tzo FROM frases, areas WHERE tipo_frase='$tipo_frase' 
+			$query = $this->mysqli->query("SELECT frase_esp, frase_tzo FROM frases, areas WHERE tipo_frase='$tipo_frase' 
 							AND area='$area' AND id_area=areas_id_area");
 			//"SELECT frase_esp, frase_tzo FROM frases WHERE tipo_frase='p' AND areas_id_area='$id_area';"
 
