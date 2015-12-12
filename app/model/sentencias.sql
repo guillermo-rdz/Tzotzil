@@ -19,8 +19,8 @@ INSERT INTO frases VALUES(default, "Región de procedencia", "A lumal", "p", 2, 
 
 
 #Pediatría Auscultación
-INSERT INTO frases VALUES(default, "Vomito", "xenel", "a", 2, 0);#Nivel 1
-INSERT INTO frases VALUES(default, "Diarrea", "tso'", "a", 2, 0);#Nivel 1
+INSERT INTO frases VALUES(default, "Vomito", "xenel", "a", 2, NULL);#Nivel 1
+INSERT INTO frases VALUES(default, "Diarrea", "tso'", "a", 2, NULL);#Nivel 1
 
 INSERT INTO frases VALUES(default, "Cuántas veces ha vomitado", "ya' yim velta la xen'", "a", 2, 5);#Nivel 2 vomito
 INSERT INTO frases VALUES(default, "desde hace cuantos días", "ja'yim xa k'ak'al", "a", 2, 6);#Nivel 2 diarrea
@@ -42,8 +42,8 @@ INSERT INTO frases VALUES(default, "Edad", "Avilal", "p", 3, NULL);
 INSERT INTO frases VALUES(default, "Sexo", "Vinik o ants", "p", 3, NULL);
 INSERT INTO frases VALUES(default, "Motivo de la consulta", "Ja yoon sventa li consulta", "p", 3, NULL);
 #Traumatología Auscultación
-INSERT INTO frases VALUES(default, "Le duele la espalda", "mi ip'xabai la pate'", "a", 3, 0);#Nivel 1
-INSERT INTO frases VALUES(default, "Le duele la rodilla", "mi ip'xabai lisjol a bakan", "a", 3, 0);#Nivel 1
+INSERT INTO frases VALUES(default, "Le duele la espalda", "mi ip'xabai la pate'", "a", 3, NULL);#Nivel 1
+INSERT INTO frases VALUES(default, "Le duele la rodilla", "mi ip'xabai lisjol a bakan", "a", 3, NULL);#Nivel 1
 
 INSERT INTO frases VALUES(default, "Cuál", "bu junukal", "a", 3, 18);#Nivel 2 Rodrilla
 

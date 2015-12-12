@@ -18,7 +18,7 @@
 			$usuario = $this->mysqli->real_escape_string($usuario);
 			$pass = $this->mysqli->real_escape_string($pass);
 
-			$query = $this->mysqli->query("SELECT id_usuario,usuario,pass,area,a.rango AS nombre_rango
+			$query = $this->mysqli->query("SELECT usuario,pass, areas_id_area, area,a.rango AS nombre_rango
 									FROM usuarios u, areas a 
 									WHERE usuario='$usuario' and pass='$pass' and id_area=area_id_area");
 			$row = $query->fetch_array();
@@ -28,6 +28,7 @@
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
 				$_SESSION['area']=utf8_encode($row['area']);
 				$_SESSION['conectado']=true;
+				$_SESSION['id_area']=$row['areas_id_area'];
 				//------------------------------------Aquí-------------------------------y Aquí
 				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
 				$datos=json_encode($datos);
@@ -152,7 +153,7 @@
 			$this->mysqli->close();
 		}
 
-		public function multi(){
+		public function multi1(){
 			$tipo_frase = "a";
 			//$tipo_frase = $_POST['tipo_frase'];
 			$id_area = 2;
@@ -161,7 +162,28 @@
 			//$id_frase = $_POST['id_frase'];
 			$datos=array();
 
-			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase ='$id_frase'");
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase IS NULL");
+			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
+			
+			while ($row = $query->fetch_assoc()) {
+				$datos[]=array("frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+			}		
+
+			$datos=json_encode($datos);
+			echo $datos;
+			//var_dump($datos);
+		}
+
+		public function multiN(){
+			$tipo_frase = "a";
+			//$tipo_frase = $_POST['tipo_frase'];
+			$id_area = 2;
+			//$id_area = $_POST['id_area'];
+			$id_frase = 7;
+			//$id_frase = $_POST['id_frase'];
+			$datos=array();
+
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase = '$id_frase'");
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
 			
 			while ($row = $query->fetch_assoc()) {
@@ -189,8 +211,12 @@
 		$instance->logout();
 	}
 
-	elseif ($_POST['tipo']=="multi") {
-		$instance->multi();
+	elseif ($_POST['tipo']=="multi1") {
+		$instance->multi1();
+	}
+
+	elseif ($_POST['tipo']=="multiN") {
+		$instance->multiN();
 	}
 	else{
 		echo "Error...";
