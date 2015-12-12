@@ -1,6 +1,6 @@
 .subtitulo{
 	color: #7f8794;
-	margin: 30px 60px;
+	margin: 0px 60px;
 }
 .btnP{
 	background: #8bd9d1;
@@ -21,13 +21,15 @@
 	padding: 0 30px;
 }
 .navbar-nav li a{
+	cursor: pointer;
 	color: black;
-	margin: 0 2.5em;
+	margin: 0 1em;
 	transition: 1s;
 	-webkir-transition: 1s;
 }
 a[data="link1"], a[data="link2"], a[data="link3"]{
 	border-left: 5px solid #333;
+	font-size: 1.5em;
 }
 ul.nav li a:hover{
 	background: #8bd9d1;
@@ -38,7 +40,7 @@ table{
 }
 tr[data-fila] td{
 	font-size: 2em;
-	padding: 1em 5em;
+	padding: 1em 3em;
 	color: #808080;
 }
 tr[data-fila] td::before{
@@ -46,4 +48,10 @@ tr[data-fila] td::before{
 }
 tr[data-fila] td::after{
 	content: "?";
+}
+.visible{
+	display: block;
+}
+.invisible{
+	display: none;
 }

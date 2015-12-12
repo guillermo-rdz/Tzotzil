@@ -32,20 +32,20 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="idmenu">
 	    	<ul class="nav navbar-nav">
-	      		<li><a data="link1" href="#">Preguntas protocolarias</a></li>
-	      		<li><a data="link2" href="#">Auscultación</a></li>
-	      		<li><a data="link3" href="#">Diagnostico</a></li>
+	      		<li><a data="link1" href="#item1">Preguntas protocolarias</a></li>
+	      		<li><a data="link2" href="#item2">Auscultación</a></li>
+	      		<li><a data="link3" href="#item3">Diagnostico</a></li>
 				<li>
-					<button class="btn btnlogout text-right">Desconectar sesión</button>
+					<button class="btn btnP btnlogout text-right">Desconectar sesión</button>
 				</li>
 	    	</ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-	<div class="container-fluid">
-		<div class="row preguntas_p"></div>
-		<div class="row auscultacion"></div>
-		<div class="row diagnostico"></div>
+	<div class="container-fluid items">
+		<div class="row preguntas_p visible" id="item1"></div>
+		<div class="row auscultacion invisible" id="item2"><h2>panel auscultacion</h2></div>
+		<div class="row diagnostico invisible" id="item3"><h2>panel diagnostico</h2></div>
 	</div>
 	<script src="app/view/js/jquery.js"></script>
 	<script src="app/view/js/bootstrap.min.js"></script>
