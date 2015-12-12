@@ -158,7 +158,7 @@
 			$id_area = 2;
 			//$id_area = $_POST['id_area'];
 			$id_frase = 7;
-			//$id_frase = $_POST['id_frase']
+			//$id_frase = $_POST['id_frase'];
 			$datos=array();
 
 			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase ='$id_frase'");
