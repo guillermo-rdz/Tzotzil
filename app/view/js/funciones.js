@@ -1,5 +1,5 @@
 (function (){
-	$(".titulo__contenido").html(sesion_area);
+	$(".titulo__contenido").html(nombre_area);
 	/*
 	alert("Su area es de tipo: "+sesion_area);
 	alert("Su usuario es de tipo: "+sesion_rango);
@@ -42,7 +42,7 @@
 	$.ajax({
 		type: "POST",
 		url: "app/model/model.php",
-		data: {"tipo":"preguntas_p","area":sesion_area,"tipo_frase":"p"}
+		data: {"tipo":"preguntas_p","area":nombre_area,"tipo_frase":"p"}
 	}).done(function (info){
 		$(".preguntas_p").html(info);
 	});
@@ -57,5 +57,15 @@
 			alert(info);
 			window.location = "/tzotzil/";
 		});
+	});
+
+
+	
+	$.ajax({
+		type: "POST",
+		url: "app/model/model.php",
+		data: {"tipo":"preguntas_p","area":sesion_area,"tipo_frase":"p"}
+	}).done(function (info){
+		$(".preguntas_p").html(info);
 	});
 })();

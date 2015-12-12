@@ -13,10 +13,32 @@
 			session_start();
 			echo "<script>".
 					"var sesion_rango='".$_SESSION["nombre_rango"]."';".
-					"var sesion_area='".$_SESSION["area"]."';".
+					"var nombre_area='".$_SESSION["area"]."';".
 				"</script>";
 			if (isset($_SESSION["conectado"])) {
 				include("app/view/contenido.html");
+			} else
+				header('Location: /tzotzil/');
+		}
+		public function panel2(){
+			session_start();
+			echo "<script>".
+					"var sesion_rango='".$_SESSION["nombre_rango"]."';".
+					"var nombre_area='".$_SESSION["area"]."';".
+				"</script>";
+			if (isset($_SESSION["conectado"])) {
+				include("app/view/auscultacion.html");
+			} else
+				header('Location: /tzotzil/');
+		}
+		public function panel3(){
+			session_start();
+			echo "<script>".
+					"var sesion_rango='".$_SESSION["nombre_rango"]."';".
+					"var nombre_area='".$_SESSION["area"]."';".
+				"</script>";
+			if (isset($_SESSION["conectado"])) {
+				include("app/view/diagnostico.html");
 			} else
 				header('Location: /tzotzil/');
 		}

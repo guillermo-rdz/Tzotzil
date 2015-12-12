@@ -13,7 +13,14 @@
 	}
 	elseif($_GET['action']=="contenido"){
 		$mvc->content();
-	}elseif($_GET['action']=="panel"){
+	}
+	elseif($_GET['action']=="auscultacion"){
+		$mvc->panel2();
+	}
+	elseif($_GET['action']=="diagnostico"){
+		$mvc->panel3();
+	}
+	elseif($_GET['action']=="panel"){
 		$mvc->panel_admin();
 	}
 	else
