@@ -25,7 +25,6 @@
 
 			if ($query->num_rows == 1) {
 				session_start();
-				$_SESSION['usuario']=$usuario;
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
 				$_SESSION['area']=utf8_encode($row['area']);
 				$_SESSION['conectado']=true;
@@ -52,7 +51,7 @@
 
 		public function preguntas_p(){
 			//Dependiendo de la vista mandas el id del area
-			$area = $_POST['area'];
+			$area = utf8_decode($_POST['area']);
 			$tipo_frase = $_POST['tipo_frase'];
 			//$id_area = 2;
 			$datos = array();
@@ -152,6 +151,27 @@
 
 			$this->mysqli->close();
 		}
+
+		public function multi(){
+			$tipo_frase = "a";
+			//$tipo_frase = $_POST['tipo_frase'];
+			$id_area = 2;
+			//$id_area = $_POST['id_area'];
+			$id_frase = 7;
+			//$id_frase = $_POST['id_frase']
+			$datos=array();
+
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase ='$id_frase'");
+			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
+			
+			while ($row = $query->fetch_assoc()) {
+				$datos[]=array("frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+			}		
+
+			$datos=json_encode($datos);
+			echo $datos;
+			//var_dump($datos);
+		}
 	}
 
 	
@@ -167,6 +187,10 @@
 
 	elseif ($_POST['tipo']=="logout") {
 		$instance->logout();
+	}
+
+	elseif ($_POST['tipo']=="multi") {
+		$instance->multi();
 	}
 	else{
 		echo "Error...";
