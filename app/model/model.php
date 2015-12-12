@@ -153,7 +153,7 @@
 			$this->mysqli->close();
 		}
 
-		public function multi(){
+		public function multi1(){
 			$tipo_frase = "a";
 			//$tipo_frase = $_POST['tipo_frase'];
 			$id_area = 2;
@@ -162,7 +162,28 @@
 			//$id_frase = $_POST['id_frase'];
 			$datos=array();
 
-			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase ='$id_frase'");
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase IS NULL");
+			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
+			
+			while ($row = $query->fetch_assoc()) {
+				$datos[]=array("frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+			}		
+
+			$datos=json_encode($datos);
+			echo $datos;
+			//var_dump($datos);
+		}
+
+		public function multiN(){
+			$tipo_frase = "a";
+			//$tipo_frase = $_POST['tipo_frase'];
+			$id_area = 2;
+			//$id_area = $_POST['id_area'];
+			$id_frase = 7;
+			//$id_frase = $_POST['id_frase'];
+			$datos=array();
+
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase = '$id_frase'");
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
 			
 			while ($row = $query->fetch_assoc()) {
@@ -190,8 +211,12 @@
 		$instance->logout();
 	}
 
-	elseif ($_POST['tipo']=="multi") {
-		$instance->multi();
+	elseif ($_POST['tipo']=="multi1") {
+		$instance->multi1();
+	}
+
+	elseif ($_POST['tipo']=="multiN") {
+		$instance->multiN();
 	}
 	else{
 		echo "Error...";
