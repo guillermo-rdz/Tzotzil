@@ -18,7 +18,7 @@
 			$usuario = $this->mysqli->real_escape_string($usuario);
 			$pass = $this->mysqli->real_escape_string($pass);
 
-			$query = $this->mysqli->query("SELECT id_usuario,usuario,pass,area,a.rango AS nombre_rango
+			$query = $this->mysqli->query("SELECT usuario,pass, areas_id_area, area,a.rango AS nombre_rango
 									FROM usuarios u, areas a 
 									WHERE usuario='$usuario' and pass='$pass' and id_area=area_id_area");
 			$row = $query->fetch_array();
@@ -28,6 +28,7 @@
 				$_SESSION['nombre_rango']=$row['nombre_rango'];
 				$_SESSION['area']=utf8_encode($row['area']);
 				$_SESSION['conectado']=true;
+				$_SESSION['id_area']=$row['areas_id_area'];
 				//------------------------------------Aquí-------------------------------y Aquí
 				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." y Area: ".utf8_encode($row['area']),"validate"=>"true");
 				$datos=json_encode($datos);
