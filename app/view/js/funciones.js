@@ -1,24 +1,6 @@
 (function (){
 	$(".titulo__contenido").html(nombre_area);
-	alert(id_area);
 	/*
-	alert("Su area es de tipo: "+nombre_area);
-	alert("Su usuario es de tipo: "+sesion_rango);
-	$("a[data='link1']").on("click",function (event){
-		event.preventDefault();
-		var valor = $("a[data='link1']").attr("href");
-		oculta(valor);
-	});
-	$("a[data='link2']").on("click",function (event){
-		event.preventDefault();
-		var valor = $("a[data='link2']").attr("href");
-		oculta(valor);
-	});
-	$("a[data='link3']").on("click",function (event){
-		event.preventDefault();
-		var valor = $("a[data='link2']").attr("href");
-		oculta(valor);
-	});
 
 	function oculta(elemento){
 		string={};
@@ -49,17 +31,6 @@
 		$(".preguntas_p").html(info);
 	});
 
-	$(".btnlogout").on("click", function (event){
-		event.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: "app/model/model.php",
-			data: {"tipo":"logout"}
-		}).done(function (info){
-			alert(info);
-			window.location = "/tzotzil/";
-		});
-	});
 
 	/*
 	//primer contenido	
@@ -87,4 +58,20 @@
 		$(".preguntas_p").html(info);
 	});
 	*/
+
+	//Boton desconectar
+	$(".btnlogout").on("click", function (event){
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "app/model/model.php",
+			data: {"tipo":"logout"}
+		}).done(function (info){
+			alert(info);
+			window.location = "/tzotzil/";
+		});
+	});
+
+
+
 })();
