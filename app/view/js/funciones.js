@@ -1,6 +1,7 @@
 (function (){
 	$(".titulo__contenido").html(nombre_area);
-	alert(id_area);
+	//alert(id_area);
+	//alert(nombre_area);
 	/*
 	alert("Su area es de tipo: "+nombre_area);
 	alert("Su usuario es de tipo: "+sesion_rango);
@@ -87,4 +88,7 @@
 		$(".preguntas_p").html(info);
 	});
 	*/
+
+	
+
 })();

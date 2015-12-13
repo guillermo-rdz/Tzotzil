@@ -7,5 +7,31 @@
 </head>
 <body>
 	<h1 class="text-center">prueba de panel</h1>
+
+	<h3>Agregar nueva area</h3>
+	<div class="lista_areas"></div>
+
+	<form>
+		Agregar nombre del área:
+		<input type="text" id="area_nueva" name="area_nueva">
+		<input type="submit" id="btnareanueva" name="btnareanueva" value="Agregar">
+	</form>
+
+	<h3>Agregar nueva pregunta protocolaria</h3>
+
+	<form>
+		Ingresa nueva pregunta español:
+		<input type="text" id="frase_nueva_esp" name="frase_nueva_esp">
+		Ingresa nueva pregunta tzotzil:
+		<input type="text" id="frase_nueva_tzo" name="frase_nueva_tzo">
+		Areas:<div id="listar_areas_select"></div>
+		<input type="submit" id="btnbtnuevap" name="btnuevap" value="Agregar">
+	</form>
+
+
+	<script src="app/view/js/jquery.js"></script>
+	<script src="app/view/js/bootstrap.min.js"></script>
+	<script src="app/view/js/admin.js"></script>
+
 </body>
 </html>
