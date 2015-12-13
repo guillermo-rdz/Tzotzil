@@ -1,5 +1,7 @@
 (function (){
 	$(".titulo__contenido").html(nombre_area);
+	//alert(id_area);
+	//alert(nombre_area);
 	/*
 
 	function oculta(elemento){
@@ -58,7 +60,6 @@
 		$(".preguntas_p").html(info);
 	});
 	*/
-
 	//Boton desconectar
 	$(".btnlogout").on("click", function (event){
 		event.preventDefault();
@@ -71,7 +72,6 @@
 			window.location = "/tzotzil/";
 		});
 	});
-
 
 
 })();

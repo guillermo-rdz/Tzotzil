@@ -82,11 +82,11 @@
 		}
 
 		//Agregar areas
-		public function agregar_areas(){
+		public function agregar_area(){
 			//cambiar por el valor que viene de la vista
 			$nombre_area = $_POST['nombre_area'];
 
-			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$area', 'n')")) {
+			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$nombre_area', 'n')")) {
 				echo "Se ingreso el área";
 			}
 			else{
@@ -98,24 +98,52 @@
 		}
 
 		public function listar_areas(){
-			$id_area = $_POST['id_area'];
+
 			$datos = array();
+			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
 
-			$query = $this->mysqli->query("SELECT area FROM areas WHERE rango='n' AND id_area='$id_area'");
-
+			echo "<table><tbody>";
 			while ($row = $query->fetch_array()) {
-				echo $row['area']."<br>";
+				echo "<tr data-fila>";
+				echo "<td>".utf8_encode($row['area'])."</td>";
+				echo "</tr>";
+
+				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
 			}
+			echo "</tbody></table>";
+
+			$datos = json_encode($datos);
+			//echo $datos;
 		}
 
-		public function agregar_preguntas(){
-			//Cambiar por los valores que vienen de la vista
-			$id_area = 2;
-			$tipo = ""; // "p" preguntas protocolarias "a" ausculcación
-			$frase_esp = "";
-			$frase_tzo = "";
+		public function listar_areas_select(){
 
-			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'p', '$id_area')")) {
+			$datos = array();
+			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
+
+			//echo "<table><tbody>";
+			echo '<select id="id_area_select" name="id_area_select">';
+			while ($row = $query->fetch_array()) {
+				echo "<option values=".$row["id_area"].">";
+				echo utf8_encode($row['area']);
+				echo "</option>";
+				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
+			}
+			echo "</select>";
+
+			$datos = json_encode($datos);
+			//echo $datos;
+		}
+
+
+		public function agregar_pregunta(){
+			//Cambiar por los valores que vienen de la vista
+			$id_area = $_POST['id_area_select'];
+			$tipo_frase = $_POST['tipo_frase']; // "p" preguntas protocolarias "a" ausculcación
+			$pregunta_esp = $_POST['frase_nueva_esp'];
+			$pregunta_tzo = $_POST['frase_nueva_tzo'];
+
+			/*if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$pregunta_esp', '$pregunta_tzo', '$tipo_frase', '$id_area')")) {
 				$datos = array("mensaje"=>"Los datos se ingresaron correctamente");
 				$datos_json = json_encode($datos);
 				echo $datos_json;
@@ -125,9 +153,18 @@
 				$datos_array = json_encode($datos);
 				echo $datos_array;
 
+			}*/
+
+			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$pregunta_esp', '$pregunta_tzo', '$tipo_frase', '$id_area', NULL)")) {
+				echo "Se ingreso el área";
+			}
+			else{
+				echo "Error al ingresar el área";
+
 			}
 
 			$this->mysqli->close();
+
 
 		}
 
@@ -194,6 +231,16 @@
 			echo $datos;
 			//var_dump($datos);
 		}
+
+		public function yolo(){
+			$id_area = $_POST['id_area_select'];
+			$tipo_frase = $_POST['tipo_frase']; // "p" preguntas protocolarias "a" ausculcación
+			$pregunta_esp = $_POST['frase_nueva_esp'];
+			$pregunta_tzo = $_POST['frase_nueva_tzo'];
+
+			echo "YOLO";
+
+		}
 	}
 
 	
@@ -205,6 +252,22 @@
 	}
 	else if($_POST['tipo']=="preguntas_p") {
 		$instance->preguntas_p();
+	}
+
+	else if($_POST['tipo']=="listar_areas") {
+		$instance->listar_areas();
+	}
+
+	else if($_POST['tipo']=="listar_areas_select") {
+		$instance->listar_areas_select();
+	}
+
+	else if($_POST['tipo']=="agregar_area") {
+		$instance->agregar_area();
+	}
+
+	else if($_POST['tipo']=="agregar_pregunta") {
+		$instance->agregar_pregunta();
 	}
 
 	elseif ($_POST['tipo']=="logout") {
