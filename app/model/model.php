@@ -193,9 +193,9 @@
 		public function multi1(){
 			$tipo_frase = "a";
 			//$tipo_frase = $_POST['tipo_frase'];
-			$id_area = 2;
-			//$id_area = $_POST['id_area'];
-			$id_frase = 7;
+			//$id_area = 2;
+			$id_area = $_POST['id_area'];
+			//$id_frase = 7;
 			//$id_frase = $_POST['id_frase'];
 			$datos=array();
 
@@ -203,8 +203,11 @@
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
 			
 			while ($row = $query->fetch_assoc()) {
-				$datos[]=array("frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+				$datos[]=array("id_frase"=>utf8_encode($row["id_frase"]),
+							"frase_esp"=>utf8_encode($row["frase_esp"]),"frase_tzo"=>utf8_encode($row["frase_tzo"]));
 			}		
+
+			$this->mysqli->close();
 
 			$datos=json_encode($datos);
 			echo $datos;

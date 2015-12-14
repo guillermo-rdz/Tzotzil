@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
 .subtitulo{
 	color: #7f8794;
 	margin: 0px 60px;
@@ -49,9 +50,21 @@ tr[data-fila] td::before{
 tr[data-fila] td::after{
 	content: "?";
 }
-.visible{
-	display: block;
+.title__subtitulo{
+	font-size: 1.5em;
 }
-.invisible{
-	display: none;
+.lista__panel1 li, .lista__panel3 li, .lista__panel3 li{
+	list-style-type: none;
+	font-size: 1.5em;
+}
+.f_esp{
+	font-size: .9em;
+	font-family: "Droid Serif", serif;
+	transition: .5s;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	-o-transition: .5s;
+}
+.f_tzo{
+	font-size: .9em;
 }
