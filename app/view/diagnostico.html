@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="app/view/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="app/view/css/prueba.css" />
 	<link rel="stylesheet" type="text/css" href="app/view/css/contenido.css" />
+	<link rel="stylesheet" type="text/css" href="app/view/css/diagnostico.css" />
 
 </head>
 <body>
@@ -42,8 +43,45 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-	<div class="container-fluid">
-		<div class="row diagnostico"><h2>panel diagnostico</h2></div>
+	<div class="container">
+		<div class="col-md-6 pediatria_d">
+			<div class="row titulo__inicio">Usted presenta cuadro de:</div>
+			<div class="row subtitulo_d">infeccion en:</div>
+			<div class="row">
+				<ul class="lista__diagnostico">
+					<li>Oidos = Smelolal Sts</li>
+					<li>Ojos = bijubtasel xchi'</li>
+					<li>Nariz = smelolal</li>
+					<li>Garganta = xchi'uk tale</li>
+					<li>Diarrea = xchi'uk yan</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6 traumatologia_d">
+			<div class="row titulo__inicio">Usted presenta</div>
+			<div class="row subtitulo_d">cuadro de:</div>
+			<div class="row">
+				<ul class="lista__diagnostico">
+					<li>Una torcedura = Smelolal Sts</li>
+					<li>Una fisura = bijubtasel xchi'</li>
+					<li>Necesita reposo = smelolal</li>
+					<li>Estará vendado = xchi'uk tale</li>
+					<li>Usará un yeso = xchi'uk yan</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row titulo__inicio text-right">Existe la necesidad de realizar:</div>
+			<div class="row subtitulo_d text-right">xk'opjik ta bats'i k'ope. Li xchapbenal abtel li'e</div>
+			<div class="row">
+				<ul class="lista__realizar">
+					<li>Analisis clínicos = chapel meltsanel</li>
+					<li>Radiografía = jchanubtasvan</li>
+					<li>Ultrasonido = semaealth</li>
+					<li>Resonancia magnetica = bijubtasel xchi'uk</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<script src="app/view/js/jquery.js"></script>
 	<script src="app/view/js/bootstrap.min.js"></script>

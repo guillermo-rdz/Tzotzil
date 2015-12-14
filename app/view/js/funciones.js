@@ -1,8 +1,11 @@
 (function (){
+
+	$.ajaxSetup({"cache": false });
+	
 	$(".titulo__contenido").html(nombre_area);
 	/*
-	alert(id_area);
 	alert(nombre_area);
+	alert(id_area);
 
 	function oculta(elemento){
 		string={};
@@ -135,5 +138,12 @@
 		});
 	});
 
-
+	//Seccion de diagnostico
+	$(".pediatria_d").hide();
+	$(".traumatologia_d").hide();
+	if (id_area == "2") {
+		$(".pediatria_d").show();
+	}else{
+		$(".traumatologia_d").show();
+	}
 })();
