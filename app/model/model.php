@@ -156,10 +156,10 @@
 			}*/
 
 			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$pregunta_esp', '$pregunta_tzo', '$tipo_frase', '$id_area', NULL)")) {
-				echo "Se ingreso el área";
+				echo "Se ingreso el registro";
 			}
 			else{
-				echo "Error al ingresar el área";
+				echo "Error al ingresar el registro";
 
 			}
 
@@ -215,14 +215,26 @@
 			//var_dump($datos);
 		}
 
-		public function yolo(){
-			$id_area = $_POST['id_area_select'];
-			$tipo_frase = $_POST['tipo_frase']; // "p" preguntas protocolarias "a" ausculcación
-			$pregunta_esp = $_POST['frase_nueva_esp'];
-			$pregunta_tzo = $_POST['frase_nueva_tzo'];
+		public function listar_multiN(){
+			$tipo_frase = "a";
+			//$tipo_frase = $_POST['tipo_frase'];
+			//$id_area = 2;
+			$id_area = $_POST['id_area'];
+			//$id_frase = 7;
+			$id_frase = $_POST['id_frase'];
+			$datos=array();
 
-			echo "YOLO";
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase = '$id_frase'");
+			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
+			
+			while ($row = $query->fetch_assoc()) {
+				$datos[]=array("id_frase"=>utf8_encode($row["id_frase"]),
+							"frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+			}		
 
+			$datos=json_encode($datos);
+			echo $datos;
+			//var_dump($datos);
 		}
 	}
 
