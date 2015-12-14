@@ -13,6 +13,7 @@
 			session_start();
 			echo "<script>".
 					"var nombre_area='".$_SESSION["area"]."';".
+					"var id_area='".$_SESSION["id_area"]."';".
 				"</script>";
 			if (isset($_SESSION["conectado"])) {
 				include("app/view/contenido.html");
@@ -34,6 +35,7 @@
 			session_start();
 			echo "<script>".
 					"var nombre_area='".$_SESSION["area"]."';".
+					"var id_area='".$_SESSION["id_area"]."';".
 				"</script>";
 			if (isset($_SESSION["conectado"])) {
 				include("app/view/diagnostico.html");

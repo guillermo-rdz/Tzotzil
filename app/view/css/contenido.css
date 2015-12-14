@@ -53,9 +53,19 @@ tr[data-fila] td::after{
 .title__subtitulo{
 	font-size: 1.5em;
 }
-.lista__panel1 li, .lista__panel3 li, .lista__panel3 li{
+.lista__panel1 li, .lista__panel2 li, .lista__panel3 li{
 	list-style-type: none;
+}
+.lista__panel1 li{
 	font-size: 1.5em;
+}
+.lista__panel2 li, .lista__panel3 li{
+	font-size: 1.2em;
+}
+.panel_b, .panel_c{
+	display: none;
+	background: #eee;
+	padding: .3em;
 }
 .f_esp{
 	font-size: .9em;

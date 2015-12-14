@@ -217,17 +217,18 @@
 		public function multiN(){
 			$tipo_frase = "a";
 			//$tipo_frase = $_POST['tipo_frase'];
-			$id_area = 2;
-			//$id_area = $_POST['id_area'];
-			$id_frase = 7;
-			//$id_frase = $_POST['id_frase'];
+			//$id_area = 2;
+			$id_area = $_POST['id_area'];
+			//$id_frase = 7;
+			$id_frase = $_POST['id_frase'];
 			$datos=array();
 
 			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase = '$id_frase'");
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
 			
 			while ($row = $query->fetch_assoc()) {
-				$datos[]=array("frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
+				$datos[]=array("id_frase"=>utf8_encode($row["id_frase"]),
+							"frase_esp"=>utf8_encode($row["frase_esp"]), "frase_tzo"=>utf8_encode($row["frase_tzo"]));
 			}		
 
 			$datos=json_encode($datos);
