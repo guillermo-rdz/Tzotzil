@@ -122,14 +122,14 @@
 			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
 
 			//echo "<table><tbody>";
-			echo '<select id="id_area_select" name="id_area_select">';
+			//echo "<select id='id_area_select' name='id_area_select'>";
 			while ($row = $query->fetch_array()) {
-				echo "<option values=".$row["id_area"].">";
+				echo "<option value=".$row['id_area'].">";
 				echo utf8_encode($row['area']);
 				echo "</option>";
 				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
 			}
-			echo "</select>";
+			//echo "</select>";
 
 			$datos = json_encode($datos);
 			//echo $datos;
@@ -168,27 +168,6 @@
 
 		}
 
-		public function agregar_auscultacion_2_3(){
-			//Cambiar por los valores que vienen de la vista
-			$id_area = 2;
-			$frase_esp = "";
-			$frase_tzo = "";
-			$id_frase = 4; //El id de la frase a la que se relaciona
-
-			if ($this->mysqli->query("INSERT INTO frases VALUES (default, '$frase_esp', '$frase_tzo', 'a', '$id_area')")) {
-				$datos = array("mensaje"=>"Los datos se ingresaron correctamente");
-				$datos_json = json_encode($datos);
-				echo $datos_json;
-			}
-			else{
-				$datos = array("mensaje"=>"Error al ingresar los datos");
-				$datos_array = json_encode($datos);
-				echo $datos_array;
-
-			}
-
-			$this->mysqli->close();
-		}
 
 		public function multi1(){
 			$tipo_frase = "a";

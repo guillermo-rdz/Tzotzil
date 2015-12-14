@@ -30,7 +30,7 @@ $.ajax({
 		data: {"tipo":"listar_areas_select"}
 	}).done(function (info){
 		//console.log(info);
-		$("#listar_areas_select").html(info);
+		$("#id_area_select").html(info);
 	});
 
 	$("#btnareanueva").on("click", function (event){
@@ -60,6 +60,6 @@ $.ajax({
 		});
 	});
 
-
+	
 
 })();
