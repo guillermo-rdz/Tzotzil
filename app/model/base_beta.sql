@@ -31,8 +31,8 @@ CREATE  TABLE IF NOT EXISTS `base_tr`.`usuarios` (
   CONSTRAINT `fk_usuarios_area1`
     FOREIGN KEY (`area_id_area` )
     REFERENCES `base_tr`.`areas` (`id_area` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -52,13 +52,13 @@ CREATE  TABLE IF NOT EXISTS `base_tr`.`frases` (
   CONSTRAINT `fk_frases_esp_areas1`
     FOREIGN KEY (`areas_id_area` )
     REFERENCES `base_tr`.`areas` (`id_area` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_frases_frases1`
     FOREIGN KEY (`frases_id_frase` )
     REFERENCES `base_tr`.`frases` (`id_frase` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

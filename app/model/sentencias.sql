@@ -7,8 +7,8 @@ INSERT INTO areas VALUES (default, "Pediatría", "n");
 INSERT INTO areas VALUES (default, "Traumatología", "n");
 # id, usuario, pass, rango, id_area
 INSERT INTO usuarios VALUES (default, "admin", "qaz", 1, 1);
-INSERT INTO usuarios VALUES (default, "Doctor_David", "qaz", 2, 2);
-INSERT INTO usuarios VALUES (default, "Doctor_Memo", "qaz", 2, 3);
+INSERT INTO usuarios VALUES (default, "doctor_p", "pedia", 2, 2);
+INSERT INTO usuarios VALUES (default, "doctor_t", "trauma", 2, 3);
 
 
 #Pediatría preguntas protocolarias
