@@ -46,9 +46,6 @@
 
 	//console.log(id_area_select.val());
 
-	listar_areas_js();
-	listar_preguntas_js();
-	listar_usuarios_js();
 
 //--------------------------   Listar áreas --------------------------------------
 function listar_areas_js () {
@@ -97,12 +94,48 @@ function listar_aus_js () {
 	});
 }
 
+function listar_aus_M_js () {
+	$.ajax({
+	type: "POST",
+	url: "app/model/model.php",
+	//url: '../../correos/app/model.php',
+	data: {"tipo":"listar_frasesM", "tipo_frase": "a", "id_area": id_area_select_aus2.val(), "frases_id": id_aus1.val()}
+	}).done(function (info){
+	console.log(info);
+	$("#listar_aus2").html(info);
+	});
+}
+
+function listar_aus_M3_js () {
+	$.ajax({
+	type: "POST",
+	url: "app/model/model.php",
+	//url: '../../correos/app/model.php',
+	data: {"tipo":"listar_frasesM", "tipo_frase": "a", "id_area": id_area_select_aus3.val(), "frases_id": id_aus3.val()}
+	}).done(function (info){
+	console.log(info);
+	$("#listar_aus3").html(info);
+	});
+}
+
+	listar_areas_js();
+	listar_preguntas_js();
+	listar_usuarios_js();
+
 $("#id_area_select").change(function(event) {
 	listar_preguntas_js();
 });
 
 $("#id_area_select_aus").change(function(event) {
 	listar_aus_js();
+});
+
+$("#id_aus1").change(function(event) {
+	listar_aus_M_js();
+});
+
+$("#id_aus2").change(function(event) {
+	listar_aus_M3_js();
 });
 
 //------------------------------- Listar auscultación nivel 1 ---------------------------
@@ -215,6 +248,7 @@ $.ajax({
 			alert(info);
 			$("#usuario_nuevo").val("");
 			$("#usuario_pass").val("");
+			listar_usuarios_js();
 			//window.location = "/tzotzil/";
 		});
 	});
@@ -230,6 +264,7 @@ $.ajax({
 			alert(info);
 			$("#frase_nueva_esp").val("");
 			$("#frase_nueva_tzo").val("");
+			listar_preguntas_js();
 			//console.log(info);
 			//window.location = "/tzotzil/";
 		});

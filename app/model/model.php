@@ -121,10 +121,11 @@
 			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
 
 			echo "<table class='table table-hover table-striped table-bordered'>".
-					"<thead><tr><th><h4>Areas existentes</h4></th></tr></thead><tbody>";
+					"<thead><tr><th><h4>Areas existentes</h4></th><th><h4>Eliminar</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
+				echo "<td>".$row['id_area']."</td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
@@ -138,13 +139,15 @@
 		public function listar_usuarios(){
 
 			$datos = array();
-			$query = $this->mysqli->query("SELECT id_usuario, usuario FROM usuarios WHERE rango=2");
+			$query = $this->mysqli->query("SELECT u.id_usuario, a.area, u.usuario FROM usuarios u INNER JOIN areas a ON a.id_area = u.area_id_area WHERE u.rango=2 ORDER BY a.area;");
 
 			echo "<table class='table table-bordered table-striped table-hover'>".
-					"<thead><tr><th><h4>Usuarios existentes</h4></th></tr></thead><tbody>";
+					"<thead><tr><th><h4>Usuarios existentes</h4></th><th><h4>Área</h4></th><th><h4>Eliminar</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['usuario'])."</td>";
+				echo "<td>".utf8_encode($row['area'])."</td>";
+				echo "<td>".$row['id_usuario']."</td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_usuario"], "area"=>utf8_encode($row["usuario"]));
@@ -153,6 +156,40 @@
 
 			$datos = json_encode($datos);
 			//echo $datos;
+		}
+
+		public function listar_frases(){
+			$tipo_frase = $_POST['tipo_frase'];
+			$id_area = $_POST['id_area'];
+			//$frases_id = $_POST['frases_id'];
+
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area='$id_area' AND frases_id_frase IS NULL");
+
+			echo "<table><tbody>";
+			while ($row = $query->fetch_array()) {
+				echo "<tr data-fila>";
+				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
+				echo "<td>".utf8_encode($row['frase_tzo'])."</td>";
+				echo "</tr>";
+			}
+			echo "</tbody></table>";
+		}
+
+		public function listar_frasesM(){
+			$tipo_frase = $_POST['tipo_frase'];
+			$id_area = $_POST['id_area'];
+			$frases_id = $_POST['frases_id'];
+
+			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area='$id_area' AND frases_id_frase = '$frases_id'");
+
+			echo "<table><tbody>";
+			while ($row = $query->fetch_array()) {
+				echo "<tr data-fila>";
+				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
+				echo "<td>".utf8_encode($row['frase_tzo'])."</td>";
+				echo "</tr>";
+			}
+			echo "</tbody></table>";
 		}
 
 		public function listar_areas_select(){
@@ -316,6 +353,7 @@
 				//$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
 			}	
 		}
+
 	}
 
 	
@@ -335,6 +373,14 @@
 
 	else if($_POST['tipo']=="listar_usuarios") {
 		$instance->listar_usuarios();
+	}
+
+	else if($_POST['tipo']=="listar_frases") {
+		$instance->listar_frases();
+	}
+
+	else if($_POST['tipo']=="listar_frasesM") {
+		$instance->listar_frasesM();
 	}
 
 	else if($_POST['tipo']=="listar_areas_select") {

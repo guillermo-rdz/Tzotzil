@@ -79,3 +79,13 @@ ON f.id_frase = fh.frases_id_frase
 INNER JOIN frases fhh
 ON fh.id_frase = fhh.frases_id_frase;
 */
+
+/*SELECT u.id_usuario, u.usuario, a.area
+FROM usuarios u
+INNER JOIN areas a
+ON u.id_usuario = a.id_area;*/
+
+SELECT u.id_usuario, u.usuario, a.area
+FROM areas a
+INNER JOIN usuarios u
+ON u.id_usuario = a.id_area
