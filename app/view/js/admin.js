@@ -2,9 +2,18 @@
 
 	$.ajaxSetup({"cache": false });
 
-	//---------------------
-	$(".nombre__usuario").html("\""+nombre_area+"\"");
-	//---------------------
+	$(".btnP").on("click", function (event){
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			url: "app/model/model.php",
+			data: {"tipo":"logout"}
+		}).done(function (info){
+			alert(info);
+			window.location = "/tzotzil/";
+		});
+	});
+
 	
 	var area_nueva = $("#area_nueva");
 	var frase_nueva = $("#frase_nueva");

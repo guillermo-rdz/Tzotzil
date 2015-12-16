@@ -120,8 +120,8 @@
 			$datos = array();
 			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
 
-			echo "<table class='table table-hover table-striped table-bordered'><tbody>".
-					"<thead><tr><h4>Areas existentes</h4></tr></thead>";
+			echo "<table class='table table-hover table-striped table-bordered'>".
+					"<thead><tr><th><h4>Areas existentes</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
@@ -140,8 +140,8 @@
 			$datos = array();
 			$query = $this->mysqli->query("SELECT id_usuario, usuario FROM usuarios WHERE rango=2");
 
-			echo "<table class='table table-bordered table-striped table-hover'><tbody>".
-					"<thead><tr><h4>Usuarios existentes</h4></tr></thead>";
+			echo "<table class='table table-bordered table-striped table-hover'>".
+					"<thead><tr><th><h4>Usuarios existentes</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['usuario'])."</td>";

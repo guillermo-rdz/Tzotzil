@@ -1,3 +1,6 @@
+.title{
+	height: 100px;
+}
 div.row h3{
 	text-align: center;
 }
@@ -6,4 +9,12 @@ div.row h3{
 }
 form input{
 	margin: 10px 0;
+}
+.btnP{
+	margin: 2em 0;
+}
+@media screen and (min-height: 250px){
+	.scroll{
+		height: 270px;
+	}
 }

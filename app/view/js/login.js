@@ -42,6 +42,8 @@
 				pass.val("");
 			}
 
+		}).fail(function(){
+			alert("No hay conexión con la base de datos, contacte con su proovedor de servicios");
 		});
 	}
 
