@@ -4,89 +4,125 @@
 	<meta charset="UTF-8">
 	<title>Panel de control</title>
 	<link rel="stylesheet" href="app/view/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/view/css/prueba.css" />
+	<link rel="stylesheet" href="app/view/css/admin.css" />
 </head>
 <body>
-	<h1 class="text-center">prueba de panel</h1>
+	<nav class="titulo-navegacion">
+		<h2>Hospital de las culturas, San Cristobal de las Casas, Chiapas</h2> 
+	</nav>
+	<div class="container">
+		<h1 class="text-center">Bienvendido super <span class="nombre__usuario"></span></h1>
 
-	<h3>Agregar nueva área</h3>
-	<h4>Áreas existentes</h4>
-	<div class="lista_areas"></div>
+		<div class="row agregar_area">
+			<h3>Agregar nueva área</h3>
+			<div class="col-md-6" data="area">
+				<div class="lista_areas table-responsive"></div>
+			</div>
+			<div class="col-md-6 form">
+				<form>
+					Agregar nombre del área:
+					<input type="text" class="form-control" id="area_nueva" name="area_nueva">
+					<input type="submit" class="btn btn-info" id="btnareanueva" name="btnareanueva" value="Agregar">
+				</form>
+			</div>
+		</div>
 
-	<form>
-		Agregar nombre del área:
-		<input type="text" id="area_nueva" name="area_nueva">
-		<input type="submit" id="btnareanueva" name="btnareanueva" value="Agregar">
-	</form>
+		<div class="row agregar__usuario">
+			<h3>Agregar usuario nuevo</h3>
+			<div class="col-md-6" data="usuario">
+				<div class="lista_usuarios table-responsive"></div>
+			</div>
+			<div class="col-md-6">
+			<form>
+				Areas:<select class="form-control" id='id_area_usuario' name='id_area_usuario'>
+				</select>
+				Agregar nombre del usuario:
+				<input type="text" class="form-control" id="usuario_nuevo" name="usuario_nuevo">
+				Agregar contraseña:
+				<input type="text" class="form-control" id="usuario_pass" name="usuario_pass">
+				<input type="submit" class="btn btn-info" id="btnusuarionuevo" name="btnusuarionuevo" value="Agregar">
+			</form>
+			</div>
+		</div>
+		<div class="row agregar__preguntaP">
+			<h3>Agregar nueva pregunta protocolaria</h3>
+			<div class="col-md-6" data="preguntasP">
+				<h4>Preguntas existentes</h4>
+				<div id="listar_preguntas"></div>
+			</div>
+			<div class="col-md-6">
+				<form>
+					Areas:
+					<select id='id_area_select' class="form-control" name='id_area_select'></select>
+					Ingresa nueva Pregunta español:
+					<input type="text" id="frase_nueva_esp" class="form-control" name="frase_nueva_esp">
+					Ingresa nueva Pregunta tzotzil:
+					<input type="text" id="frase_nueva_tzo" class="form-control" name="frase_nueva_tzo">
+					<input type="submit" id="btnbtnuevap" class="btn btn-info" name="btnuevap" value="Agregar">
+				</form>
+			</div>
+		</div>
+		<div class="row agregar__nivel1">
+			<h3>Agregar Auscultación Nivel 1</h3>
+			<div class="col-md-6" data="nivel1">
+				<h4>Auscultaciones existentes</h4>
+				<div id="listar_aus"></div>
+			</div>
+			<div class="col-md-6">
+				<form>
+					Areas:
+					<select id='id_area_select_aus' class="form-control" name='id_area_select_aus'></select>
+					Ingresa nueva Auscultación español:
+					<input type="text" id="frase_nueva_esp_aus" class="form-control" name="frase_nueva_esp_aus">
+					Ingresa nueva Auscultación tzotzil:
+					<input type="text" id="frase_nueva_tzo_aus" name="frase_nueva_tzo_aus" class="form-control">
+					<input type="submit" id="btnbtnuevaa" name="btnbtnuevaa" value="Agregar" class="btn btn-info">
+				</form>
+			</div>
+		</div>
+		<div class="row agregar__nivel2">
+			<h3>Agregar Auscultación Nivel 2</h3>
+			<div class="col-md-6">
+				hola mundo
+			</div>
+			<div class="col-md-6">
+				<form>
+					Areas:<select id='id_area_select_aus2' name='id_area_select_aus2' class="form-control">
+					</select>
+					Auscultación 1: <select id='id_aus1' name='id_aus1' class="form-control">
+					</select>
+					Ingresa nueva Auscultación 2 español:
+					<input type="text" id="frase_nueva_esp_aus2" name="frase_nueva_esp_aus2" class="form-control">
+					Ingresa nueva Auscultación 2 tzotzil:
+					<input type="text" id="frase_nueva_tzo_aus2" class="form-control" name="frase_nueva_tzo_aus2">
+					<input type="submit" id="btnbtnuevaa2" name="btnbtnuevaa2" class="btn btn-info" value="Agregar">
+				</form>	
+			</div>
+		</div>
 
-	<h3>Agregar usuario nuevo</h3>
-	<h4>Usuarios existentes</h4>
-	<div class="lista_usuarios"></div>
-
-	<form>
-		Areas:<select id='id_area_usuario' name='id_area_usuario'>
-		</select>
-		Agregar nombre del usuario:
-		<input type="text" id="usuario_nuevo" name="usuario_nuevo">
-		Agregar contraseña:
-		<input type="text" id="usuario_pass" name="usuario_pass">
-		<input type="submit" id="btnusuarionuevo" name="btnusuarionuevo" value="Agregar">
-	</form>
-
-	<h3>Agregar nueva pregunta protocolaria</h3>
-	<h4>Preguntas existentes</h4>
-	<div id="listar_preguntas"></div>
-	<form>
-		Areas:<select id='id_area_select' name='id_area_select'>
-		</select>
-		Ingresa nueva Pregunta español:
-		<input type="text" id="frase_nueva_esp" name="frase_nueva_esp">
-		Ingresa nueva Pregunta tzotzil:
-		<input type="text" id="frase_nueva_tzo" name="frase_nueva_tzo">
-		<input type="submit" id="btnbtnuevap" name="btnuevap" value="Agregar">
-	</form>
-
-	<h3>Agregar Auscultación Nivel 1</h3>
-	<h4>Auscultaciones existentes</h4>
-	<div id="listar_aus"></div>
-		<form>
-			Areas:<select id='id_area_select_aus' name='id_area_select_aus'>
-			</select>
-			Ingresa nueva Auscultación español:
-			<input type="text" id="frase_nueva_esp_aus" name="frase_nueva_esp_aus">
-			Ingresa nueva Auscultación tzotzil:
-			<input type="text" id="frase_nueva_tzo_aus" name="frase_nueva_tzo_aus">
-			<input type="submit" id="btnbtnuevaa" name="btnbtnuevaa" value="Agregar">
-		</form>
-
-	<h3>Agregar Auscultación Nivel 2</h3>
-
-		<form>
-			Areas:<select id='id_area_select_aus2' name='id_area_select_aus2'>
-			</select>
-			Auscultación 1: <select id='id_aus1' name='id_aus1'>
-			</select>
-			Ingresa nueva Auscultación 2 español:
-			<input type="text" id="frase_nueva_esp_aus2" name="frase_nueva_esp_aus2">
-			Ingresa nueva Auscultación 2 tzotzil:
-			<input type="text" id="frase_nueva_tzo_aus2" name="frase_nueva_tzo_aus2">
-			<input type="submit" id="btnbtnuevaa2" name="btnbtnuevaa2" value="Agregar">
-		</form>
-
-	<h3>Agregar Auscultación Nivel 3</h3>
-
-		<form>
-			Areas:<select id='id_area_select_aus3' name='id_area_select_aus3'>
-			</select>
-			Auscultación 1: <select id='id_aus2' name='id_aus2'>
-			</select>
-			Auscultación 2: <select id='id_aus3' name='id_aus3'>
-			</select>
-			Ingresa nueva Auscultación 3 español:
-			<input type="text" id="frase_nueva_esp_aus3" name="frase_nueva_esp_aus3">
-			Ingresa nueva Auscultación 3 tzotzil:
-			<input type="text" id="frase_nueva_tzo_aus3" name="frase_nueva_tzo_aus3">
-			<input type="submit" id="btnbtnuevaa3" name="btnbtnuevaa3" value="Agregar">
-		</form>
+		<div class="row agregar__nivel3">
+			<h3>Agregar Auscultación Nivel 3</h3>
+			<div class="col-md-6">
+				hola mundo
+			</div>
+			<div class="col-md-6">
+				<form>
+					Areas:
+					<select id='id_area_select_aus3' class="form-control" name='id_area_select_aus3'></select>
+					Auscultación 1: <select class="form-control" id='id_aus2' name='id_aus2'>
+					</select>
+					Auscultación 2: <select class="form-control" id='id_aus3' name='id_aus3'>
+					</select>
+					Ingresa nueva Auscultación 3 español:
+					<input type="text" id="frase_nueva_esp_aus3" class="form-control" name="frase_nueva_esp_aus3">
+					Ingresa nueva Auscultación 3 tzotzil:
+					<input type="text" id="frase_nueva_tzo_aus3" class="form-control" name="frase_nueva_tzo_aus3">
+					<input type="submit" id="btnbtnuevaa3" class="btn btn-info" name="btnbtnuevaa3" value="Agregar">
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<script src="app/view/js/jquery.js"></script>
 	<script src="app/view/js/bootstrap.min.js"></script>

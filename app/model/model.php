@@ -30,7 +30,8 @@
 				$_SESSION['conectado']=true;
 				$_SESSION['id_area']=$row['area_id_area'];
 				//------------------------------------Aquí-------------------------------y Aquí
-				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." del area de: ".utf8_encode($row['area']),"validate"=>"true");
+				$datos=array("mensaje"=>"Bienvenido: ".utf8_encode($usuario)." del area de: ".utf8_encode($row['area']),
+							"rango"=>$row['nombre_rango'],"validate"=>"true");
 				$datos=json_encode($datos);
 				echo $datos;
 			} else {
@@ -119,7 +120,8 @@
 			$datos = array();
 			$query = $this->mysqli->query("SELECT id_area, area FROM areas WHERE rango='n'");
 
-			echo "<table><tbody>";
+			echo "<table class='table table-hover table-striped table-bordered'><tbody>".
+					"<thead><tr><h4>Areas existentes</h4></tr></thead>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
@@ -138,7 +140,8 @@
 			$datos = array();
 			$query = $this->mysqli->query("SELECT id_usuario, usuario FROM usuarios WHERE rango=2");
 
-			echo "<table><tbody>";
+			echo "<table class='table table-bordered table-striped table-hover'><tbody>".
+					"<thead><tr><h4>Usuarios existentes</h4></tr></thead>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['usuario'])."</td>";
@@ -375,7 +378,7 @@
 	}
 
 	else{
-		echo "Error...";
+		echo "Error...Funcion no encontrada!!!";
 	}
 
  ?>

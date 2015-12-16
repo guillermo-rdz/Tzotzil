@@ -1,6 +1,10 @@
 (function (){
 
 	$.ajaxSetup({"cache": false });
+
+	//---------------------
+	$(".nombre__usuario").html("\""+nombre_area+"\"");
+	//---------------------
 	
 	var area_nueva = $("#area_nueva");
 	var frase_nueva = $("#frase_nueva");
@@ -63,8 +67,8 @@ function listar_usuarios_js () {
 function listar_preguntas_js () {
 	$.ajax({
 	type: "POST",
-	//url: "app/model/model.php",
-	url: '../../correos/app/model.php',
+	url: "app/model/model.php",
+	//url: '../../correos/app/model.php',
 	data: {"tipo":"listar_frases", "tipo_frase": "p", "id_area": id_area_select.val()}
 	}).done(function (info){
 	console.log(info);
@@ -75,8 +79,8 @@ function listar_preguntas_js () {
 function listar_aus_js () {
 	$.ajax({
 	type: "POST",
-	//url: "app/model/model.php",
-	url: '../../correos/app/model.php',
+	url: "app/model/model.php",
+	//url: '../../correos/app/model.php',
 	data: {"tipo":"listar_frases", "tipo_frase": "a", "id_area": id_area_select_aus.val()}
 	}).done(function (info){
 	console.log(info);

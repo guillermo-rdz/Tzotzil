@@ -1,0 +1,9 @@
+div.row h3{
+	text-align: center;
+}
+.row{
+	height: 300px;
+}
+form input{
+	margin: 10px 0;
+}

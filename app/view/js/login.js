@@ -23,15 +23,19 @@
 			dataType: "json",
 			data: {"tipo":"login","usuario":user.val(), "pass":pass.val()}
 		}).done(function (info){
+			//console.log(info);
 			var parte1="<div id='mensaje_error' class='alert alert-warning alert-dismissible' role='alert'>";
 			var parte2="<button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
 			var parte3="<span aria-hidden='true'>&times;</span></button><strong>"+info.mensaje+"</strong></div>";
-			console.log(info);
 			if (info.validate == "true") {
 				$(".error").html(parte1+parte2+parte3).fadeIn();
 				user.val("");
 				pass.val("");
-				setTimeout(function (){window.location = "contenido";},2000);
+				if(info.rango=="a"){
+					setTimeout(function (){window.location = "panel";},1500);
+				} else{
+					setTimeout(function (){window.location = "contenido";},2000);
+				}
 			} else {
 				$(".error").html(parte1+parte2+parte3).fadeIn();
 				user.val("");

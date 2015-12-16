@@ -54,6 +54,7 @@ tr[data-fila] td::after{
 	font-size: 1.5em;
 }
 .lista__panel1 li, .lista__panel2 li, .lista__panel3 li{
+	cursor: pointer;
 	list-style-type: none;
 }
 .lista__panel1 li{
