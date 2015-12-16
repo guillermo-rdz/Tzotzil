@@ -129,6 +129,67 @@
 	<script src="app/view/js/jquery.js"></script>
 	<script src="app/view/js/bootstrap.min.js"></script>
 	<script src="app/view/js/admin.js"></script>
+	<script type="text/javascript">
+		function eliminar (id_area) {
+			//alert($(id_area).val());
+			var c = confirm("Desea eliminar el área");
+			if (c == true) {
+			$.ajax({
+				url: 'app/model/model.php',
+				type: 'POST',
+				data: {"tipo": 'eliminar_area', "id_registro": $(id_area).val()},
+			})
+			.done(function(info) {
+				//console.log(info);
+				location.reload();
+				alert(info);
+			});
+			}
+			else{
+
+			}	
+		}
+
+		function eliminar_usuario (id_usuario) {
+			//alert($(id_area).val());
+			var c = confirm("Desea eliminar el usuario");
+			if (c == true) {
+			$.ajax({
+				url: 'app/model/model.php',
+				type: 'POST',
+				data: {"tipo": 'eliminar_usuario', "id_registro": $(id_usuario).val()},
+			})
+			.done(function(info) {
+				//console.log(info);
+				location.reload();
+				alert(info);
+			});
+			}
+			else{
+
+			}	
+		}
+
+		function eliminar_frase (id_frase) {
+			//alert($(id_area).val());
+			var c = confirm("Desea eliminar el registro");
+			if (c == true) {
+			$.ajax({
+				url: 'app/model/model.php',
+				type: 'POST',
+				data: {"tipo": 'eliminar_frase', "id_registro": $(id_frase).val()},
+			})
+			.done(function(info) {
+				//console.log(info);
+				location.reload();
+				alert(info);
+			});
+			}
+			else{
+
+			}	
+		}
+	</script>
 
 	}
 

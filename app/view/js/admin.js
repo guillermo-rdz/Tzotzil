@@ -306,7 +306,7 @@ $.ajax({
 			console.log(info);
 			$("#frase_nueva_esp_aus2").val("");
 			$("#frase_nueva_tzo_aus2").val("");
-			
+			listar_aus_M_js();
 			//console.log(info);
 			//window.location = "/tzotzil/";
 		});
@@ -325,7 +325,7 @@ $.ajax({
 			console.log(info);
 			$("#frase_nueva_esp_aus3").val("");
 			$("#frase_nueva_tzo_aus3").val("");
-			
+			listar_aus_M3_js();
 			//console.log(info);
 			//window.location = "/tzotzil/";
 		});

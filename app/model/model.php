@@ -94,10 +94,10 @@
 			}
 		}
 
-		public function eliminar_usuarios(){
+		public function eliminar_usuario(){
 			$id_registro = $_POST['id_registro'];
 
-				if($query = $this->mysqli->query("DELETE FROM usuarios WHERE id_area = '$id_registro'"))
+				if($query = $this->mysqli->query("DELETE FROM usuarios WHERE id_usuario = '$id_registro'"))
 				echo "Se elimino el registro";
 
 			else{
@@ -108,7 +108,7 @@
 		public function eliminar_frase(){
 			$id_registro = $_POST['id_registro'];
 
-			if($query = $this->mysqli->query("DELETE FROM frases WHERE id_area = '$id_registro'")){
+			if($query = $this->mysqli->query("DELETE FROM frases WHERE id_frase = '$id_registro'")){
 				echo "Se elimino el registro";
 			}
 
@@ -158,10 +158,10 @@
 			echo "<table class='table table-hover table-striped table-bordered'>".
 					"<thead><tr><th><h4>Areas existentes</h4></th><th><h4>Eliminar</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
-				echo "<tr data-fila>";
+				echo "<tr class = 'fila-area'>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
 				//echo "<td>".$row['id_area']."</td>";
-				echo "<td><button class = 'btn btn-danger' value='$row[id_area]' onclick=\"yolo(this)\">&times;</button></td>";
+				echo "<td><button class = 'btn btn-danger' value='$row[id_area]' onclick=\"eliminar(this)\">&times;</button></td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
@@ -180,11 +180,11 @@
 			echo "<table class='table table-bordered table-striped table-hover'>".
 					"<thead><tr><th><h4>Usuarios existentes</h4></th><th><h4>Área</h4></th><th><h4>Eliminar</h4></th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
-				echo "<tr data-fila>";
+				echo "<tr fila-usuario>";
 				echo "<td>".utf8_encode($row['usuario'])."</td>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
 				//echo "<td>".$row['id_usuario']."</td>";
-				echo "<td><button class = 'btn btn-danger' value='$row[id_usuario]'>&times;</button></td>";
+				echo "<td><button class = 'btn btn-danger' onclick='eliminar_usuario(this)' value='$row[id_usuario]'>&times;</button></td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_usuario"], "area"=>utf8_encode($row["usuario"]));
@@ -206,11 +206,11 @@
 			"<thead><tr><th><h4>Frase</h4> </th><th><h4>Área</h4><th><h4>Eliminar</h4> </th> </th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 
-				echo "<tr data-fila>";
+				echo "<tr fila-frase1>";
 				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
 				//echo "<td>".$row['id_frase']."</td>";
-				echo "<td><button class = 'btn btn-danger' value='$row[id_frase]'>&times;</button></td>";
+				echo "<td><button class = 'btn btn-danger' onclick='eliminar_frase(this)' value='$row[id_frase]'>&times;</button></td>";
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
@@ -226,10 +226,10 @@
 			echo "<table class = 'table table-hover table-striped table-bordered'>".
 			"<thead><tr><th><h4>Frase</h4> </th><th><h4>Área</h4><th><h4>Eliminar</h4> </th> </th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
-				echo "<tr data-fila>";
+				echo "<tr fila-frase1>";
 				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
-				echo "<td><button class = 'btn btn-danger' value='$row[id_frase]'>&times;</button></td>";
+				echo "<td><button class = 'btn btn-danger' onclick='eliminar_frase(this)' value='$row[id_frase]'>&times;</button></td>";
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
@@ -466,6 +466,18 @@
 
 	elseif ($_POST['tipo']=="listar_multiN") {
 		$instance->listar_multiN();
+	}
+
+	elseif ($_POST['tipo']=="eliminar_area") {
+		$instance->eliminar_area();
+	}
+
+	elseif ($_POST['tipo']=="eliminar_usuario") {
+		$instance->eliminar_usuario();
+	}
+
+	elseif ($_POST['tipo']=="eliminar_frase") {
+		$instance->eliminar_frase();
 	}
 
 	else{
