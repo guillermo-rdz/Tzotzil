@@ -80,12 +80,7 @@ INNER JOIN frases fhh
 ON fh.id_frase = fhh.frases_id_frase;
 */
 
-/*SELECT u.id_usuario, u.usuario, a.area
-FROM usuarios u
+/*SELECT f.id_frase, f.frase_esp, a.area
+FROM frases f
 INNER JOIN areas a
-ON u.id_usuario = a.id_area;*/
-
-SELECT u.id_usuario, u.usuario, a.area
-FROM areas a
-INNER JOIN usuarios u
-ON u.id_usuario = a.id_area
+ON f.areas_id_area = a.id_area where f.frases_id_frase is null and f.tipo_frase = 'p';*/

@@ -82,6 +82,41 @@
 			echo $datos_json;*/
 		}
 
+		public function eliminar_area(){
+			$id_registro = $_POST['id_registro'];
+
+			if ($query = $this->mysqli->query("DELETE FROM areas WHERE id_area = '$id_registro'")){
+				echo "Se elimino el registro";	
+			}
+
+			else{
+				echo "Error al eliminar registro";
+			}
+		}
+
+		public function eliminar_usuarios(){
+			$id_registro = $_POST['id_registro'];
+
+				if($query = $this->mysqli->query("DELETE FROM usuarios WHERE id_area = '$id_registro'"))
+				echo "Se elimino el registro";
+
+			else{
+				echo "Error al eliminar registro";
+			}
+		}
+
+		public function eliminar_frase(){
+			$id_registro = $_POST['id_registro'];
+
+			if($query = $this->mysqli->query("DELETE FROM frases WHERE id_area = '$id_registro'")){
+				echo "Se elimino el registro";
+			}
+
+			else{
+				echo "Error al eliminar registro";
+			}
+		}
+
 		//Agregar areas
 		public function agregar_area(){
 			//cambiar por el valor que viene de la vista
@@ -125,7 +160,8 @@
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
-				echo "<td>".$row['id_area']."</td>";
+				//echo "<td>".$row['id_area']."</td>";
+				echo "<td><button class = 'btn btn-danger' value='$row[id_area]' onclick=\"yolo(this)\">&times;</button></td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_area"], "area"=>utf8_encode($row["area"]));
@@ -147,7 +183,8 @@
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['usuario'])."</td>";
 				echo "<td>".utf8_encode($row['area'])."</td>";
-				echo "<td>".$row['id_usuario']."</td>";
+				//echo "<td>".$row['id_usuario']."</td>";
+				echo "<td><button class = 'btn btn-danger' value='$row[id_usuario]'>&times;</button></td>";
 				echo "</tr>";
 
 				$datos[]=array("id_area"=>$row["id_usuario"], "area"=>utf8_encode($row["usuario"]));
@@ -163,13 +200,17 @@
 			$id_area = $_POST['id_area'];
 			//$frases_id = $_POST['frases_id'];
 
-			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area='$id_area' AND frases_id_frase IS NULL");
+			$query = $this->mysqli->query("SELECT f.id_frase, f.frase_esp, a.area FROM frases f INNER JOIN areas a ON f.areas_id_area = a.id_area WHERE f.frases_id_frase is null and f.tipo_frase = '$tipo_frase' AND a.id_area = '$id_area'");
 
-			echo "<table><tbody>";
+			echo "<table class = 'table table-hover table-striped table-bordered'>".
+			"<thead><tr><th><h4>Frase</h4> </th><th><h4>Área</h4><th><h4>Eliminar</h4> </th> </th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
+
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
-				echo "<td>".utf8_encode($row['frase_tzo'])."</td>";
+				echo "<td>".utf8_encode($row['area'])."</td>";
+				//echo "<td>".$row['id_frase']."</td>";
+				echo "<td><button class = 'btn btn-danger' value='$row[id_frase]'>&times;</button></td>";
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
@@ -180,13 +221,15 @@
 			$id_area = $_POST['id_area'];
 			$frases_id = $_POST['frases_id'];
 
-			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area='$id_area' AND frases_id_frase = '$frases_id'");
+			$query = $this->mysqli->query("SELECT f.id_frase, f.frase_esp, a.area FROM frases f INNER JOIN areas a ON f.areas_id_area = a.id_area WHERE f.frases_id_frase = '$frases_id' AND f.tipo_frase = '$tipo_frase' AND a.id_area = '$id_area'");
 
-			echo "<table><tbody>";
+			echo "<table class = 'table table-hover table-striped table-bordered'>".
+			"<thead><tr><th><h4>Frase</h4> </th><th><h4>Área</h4><th><h4>Eliminar</h4> </th> </th></tr></thead><tbody>";
 			while ($row = $query->fetch_array()) {
 				echo "<tr data-fila>";
 				echo "<td>".utf8_encode($row['frase_esp'])."</td>";
-				echo "<td>".utf8_encode($row['frase_tzo'])."</td>";
+				echo "<td>".utf8_encode($row['area'])."</td>";
+				echo "<td><button class = 'btn btn-danger' value='$row[id_frase]'>&times;</button></td>";
 				echo "</tr>";
 			}
 			echo "</tbody></table>";
@@ -199,6 +242,7 @@
 
 			//echo "<table><tbody>";
 			//echo "<select id='id_area_select' name='id_area_select'>";
+			echo "<option title = 'Elija una opción'>Elija una opción</option>";
 			while ($row = $query->fetch_array()) {
 				echo "<option value=".$row['id_area'].">";
 				echo utf8_encode($row['area']);
@@ -324,7 +368,7 @@
 
 			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase IS NULL");
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
-			
+				echo "<option title = 'Elija una opción'>Elija una opción</option>";
 			while ($row = $query->fetch_array()) {
 				echo "<option value=".$row['id_frase'].">";
 				echo utf8_encode($row['frase_esp']);
@@ -346,6 +390,7 @@
 			$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases WHERE tipo_frase='$tipo_frase' AND areas_id_area = '$id_area' AND frases_id_frase = '$id_frase' ");
 			//$query = $this->mysqli->query("SELECT id_frase, frase_esp, frase_tzo FROM frases");
 			
+			echo "<option title = 'Elija una opción'>Elija una opción</option>";
 			while ($row = $query->fetch_array()) {
 				echo "<option value=".$row['id_frase'].">";
 				echo utf8_encode($row['frase_esp']);

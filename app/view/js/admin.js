@@ -47,6 +47,10 @@
 	//console.log(id_area_select.val());
 
 
+/*var elminar_registros = function() {
+		alert("YOLO");
+	}*/
+
 //--------------------------   Listar áreas --------------------------------------
 function listar_areas_js () {
 	$.ajax({
@@ -134,7 +138,7 @@ $("#id_aus1").change(function(event) {
 	listar_aus_M_js();
 });
 
-$("#id_aus2").change(function(event) {
+$("#id_aus3").change(function(event) {
 	listar_aus_M3_js();
 });
 
@@ -326,5 +330,6 @@ $.ajax({
 			//window.location = "/tzotzil/";
 		});
 	});
+
 
 })();
