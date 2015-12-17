@@ -43,13 +43,13 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 	<div class="container-fluid">
-		<div class="row auscultacion">
-			<div class="col-md-9">
+		<div class="row">
+			<div class="col-md-9 auscultacion">
 				<div class="container-fluid">
 					<div class="row"><h3>Instrucción</h3></div>
 					<div class="row title__subtitulo">Oprima la parte del cuerpo humano que le duele o le molesta</div>
 					<div class="row title__subtitulo">k'uk'umal chi7uk 'uk'um ahnilal</div>
-					<div class="row">
+					<div class="row recarga">
 						<div class="col-md-4">
 							<ul class="lista__panel1 panel_a">
 								<li>Presenta:</li>
@@ -65,12 +65,22 @@
 				</div>
 			</div>
 			<div class="col-md-3">
-				<figure><img src="" alt="imagen de bebe"></figure>
+				<div class="row">
+					<button class="btn btnP" onclick="recargar();">Recarga Panel</button>
+				</div>
+				<div class="row">
+					<figure style="margin:1.5em;"><img src="app/view/img/bebe2.jpg" style="width:107%; height:auto;" alt="imagen de bebe"></figure>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script src="app/view/js/jquery.js"></script>
 	<script src="app/view/js/bootstrap.min.js"></script>
 	<script src="app/view/js/funciones.js"></script>
+	<script>
+	function recargar(){
+		setTimeout(function (){window.location = "auscultacion";},500);
+	}
+	</script>
 </body>
 </html>

@@ -80,9 +80,9 @@
 				//estilos
 				$(".item2-"+info[i].id_frase+"-li_"+(i+1)).css("padding","10px 40px");
 				$(".item2-"+info[i].id_frase+"-li_"+(i+1)).hover(function(){
-			        $(this).css({"background-color":"#eee","transition":".7s"});
-			        }, function(){
 			        $(this).css({"background-color":"white","transition":".7s"});
+			        }, function(){
+			        $(this).css({"background-color":"#eee","transition":".7s"});
 			    });
 				//evento
 			    $(".item2-"+info[i].id_frase+"-li_"+(i+1)).on("click",function(evento){
@@ -113,9 +113,9 @@
 				//estilos
 				$(".item3-"+info[i].id_frase+"-li_"+(i+1)).css("padding","10px 40px");
 				$(".item3-"+info[i].id_frase+"-li_"+(i+1)).hover(function(){
-			        $(this).css({"background-color":"#eee","transition":".7s"});
-			        }, function(){
 			        $(this).css({"background-color":"white","transition":".7s"});
+			        }, function(){
+			        $(this).css({"background-color":"#eee","transition":".7s"});
 			    });
 			}
 			/*
