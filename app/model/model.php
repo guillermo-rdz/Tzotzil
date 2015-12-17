@@ -120,7 +120,7 @@
 		//Agregar areas
 		public function agregar_area(){
 			//cambiar por el valor que viene de la vista
-			$nombre_area = $_POST['nombre_area'];
+			$nombre_area = utf8_decode($_POST['nombre_area']);
 
 			if ($this->mysqli->query("INSERT INTO areas VALUES (default, '$nombre_area', 'n')")) {
 				echo "Se ingreso el area";
