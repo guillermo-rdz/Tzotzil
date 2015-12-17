@@ -22,7 +22,7 @@
 			<div class="col-md-6" data="area">
 				<div class="lista_areas table-responsive scroll"></div>
 			</div>
-			<div class="col-md-6 form">
+			<div class="col-md-6">
 				<form>
 					Agregar nombre del área:
 					<input type="text" class="form-control" id="area_nueva" name="area_nueva">
@@ -37,22 +37,22 @@
 				<div class="table-responsive lista_usuarios scroll"></div>
 			</div>
 			<div class="col-md-6">
-			<form>
-				Areas:<select class="form-control" id='id_area_usuario' name='id_area_usuario'>
-				</select>
-				Agregar nombre del usuario:
-				<input type="text" class="form-control" id="usuario_nuevo" name="usuario_nuevo">
-				Agregar contraseña:
-				<input type="text" class="form-control" id="usuario_pass" name="usuario_pass">
-				<input type="submit" class="btn btn-info" id="btnusuarionuevo" name="btnusuarionuevo" value="Agregar">
-			</form>
+				<form>
+					Areas:<select class="form-control" id='id_area_usuario' name='id_area_usuario'>
+					</select>
+					Agregar nombre del usuario:
+					<input type="text" class="form-control" id="usuario_nuevo" name="usuario_nuevo">
+					Agregar contraseña:
+					<input type="text" class="form-control" id="usuario_pass" name="usuario_pass">
+					<input type="submit" class="btn btn-info" id="btnusuarionuevo" name="btnusuarionuevo" value="Agregar">
+				</form>
 			</div>
 		</div>
 		<div class="row agregar__preguntaP">
 			<h3>Agregar nueva pregunta protocolaria</h3>
+			<!--h4>Preguntas existentes</h4-->
 			<div class="col-md-6" data="preguntasP">
-				<h4>Preguntas existentes</h4>
-				<div id="listar_preguntas"></div>
+				<div id="listar_preguntas" class="table-responsive scroll"></div>
 			</div>
 			<div class="col-md-6">
 				<form>
@@ -69,8 +69,8 @@
 		<div class="row agregar__nivel1">
 			<h3>Agregar Auscultación Nivel 1</h3>
 			<div class="col-md-6" data="nivel1">
-				<h4>Auscultaciones existentes</h4>
-				<div id="listar_aus"></div>
+				<!--h4>Auscultaciones existentes</h4-->
+				<div id="listar_aus" class="table-responsive scroll"></div>
 			</div>
 			<div class="col-md-6">
 				<form>
@@ -86,7 +86,8 @@
 		</div>
 		<div class="row agregar__nivel2">
 			<h3>Agregar Auscultación Nivel 2</h3>
-			<div id="listar_aus2" class="col-md-6">
+			<div class="col-md-6">
+				<div id="listar_aus2" class="table-responsive scroll"></div>
 			</div>
 			<div class="col-md-6">
 				<form>

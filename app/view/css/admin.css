@@ -15,6 +15,6 @@ form input{
 }
 @media screen and (min-height: 250px){
 	.scroll{
-		height: 270px;
+		height: 250px;
 	}
 }

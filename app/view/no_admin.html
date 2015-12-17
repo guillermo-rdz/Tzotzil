@@ -13,7 +13,7 @@
 		  </svg>
 		<h2>Usted no cuenta con permisos para ver esta sección</h2>
 		<h3>Porque no eres pro, como los administradores</h3>
-		<p><?php echo $_SESSION["area"] ?></p>
+		<p><?php echo isset($_SESSION["area"]); ?></p>
 	</div>
 
 	<script>

@@ -48,9 +48,9 @@
 		public function panel_admin(){
 			session_start();
 			echo "<script>".
-					"var sesion_rango='".$_SESSION["nombre_rango"]."';".
-					"var nombre_area='".$_SESSION["area"]."';".
-					"var id_area='".$_SESSION["id_area"]."';".
+					"var sesion_rango='".isset($_SESSION["nombre_rango"])."';".
+					"var nombre_area='".isset($_SESSION["area"])."';".
+					"var id_area='".isset($_SESSION["id_area"])."';".
 				"</script>";
 			if((isset($_SESSION["conectado"])) && ($_SESSION['nombre_rango']=="a")){
 				include("app/view/panel_admin.html");
